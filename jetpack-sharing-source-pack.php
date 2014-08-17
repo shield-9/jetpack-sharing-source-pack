@@ -22,6 +22,7 @@ if(version_compare(get_bloginfo('version'), '3.8', '<')) {
 }
 
 define('JPSSP__PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('JPSSP__PLUGIN_URL', plugin_dir_url(__FILE__));
 define('JPSSP__PLUGIN_FILE', __FILE__);
 define('JPSSP__VERSION' , '0.1.0-dev');
 
