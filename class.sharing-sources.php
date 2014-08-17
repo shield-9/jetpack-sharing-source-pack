@@ -39,7 +39,10 @@ class Share_Feedly extends Sharing_Source {
 		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
 	}
 
-	function display_footer() {
+	function display_footer() { ?>
+		<script>feed_URL = '<?php bloginfo('rss2_url')?>';</script>
+	<?php
+		wp_enqueue_script('jpssp', JPSSP__PLUGIN_URL .'count.js', array('jquery'), JPSSP__VERSION, true);
 		$this->js_dialog( $this->shortname );
 	}
 
@@ -51,5 +54,4 @@ class Share_Feedly extends Sharing_Source {
 		wp_redirect( $feedly_url );
 		die();
 	}
-
 }
