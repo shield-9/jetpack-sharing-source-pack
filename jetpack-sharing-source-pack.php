@@ -21,6 +21,9 @@ if(version_compare(get_bloginfo('version'), '3.8', '<')) {
 	deactivate_plugins(__FILE__);
 }
 
+define('JPSSP__PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('JPSSP__PLUGIN_FILE', __FILE__);
+
 add_action('init', array('Jetpack_Sharing_Source_Pack', 'init'));
 
 class Jetpack_Sharing_Source_Pack {
@@ -45,8 +48,11 @@ class Jetpack_Sharing_Source_Pack {
 
 	private function __construct() {
 		add_action('wp_loaded', array(&$this, 'register_assets'));
-		add_action('plugins_loaded', array(&$this, 'require_services'));
-
+		if(did_action('plugins_loaded')) {
+			$this->require_services();
+		} else {
+			add_action('plugins_loaded', array(&$this, 'require_services'));
+		}
 		add_filter('plugin_row_meta', array(&$this, 'plugin_row_meta'), 10, 2);
 	}
 
@@ -57,7 +63,7 @@ class Jetpack_Sharing_Source_Pack {
 
 	function require_services() {
 		if(class_exists('Jetpack')) {
-			require dirname(plugin_basename(__FILE__)) . '/class.sharing-services.php';
+			require JPSSP__PLUGIN_DIR . 'class.sharing-services.php';
 		}
 	}
 

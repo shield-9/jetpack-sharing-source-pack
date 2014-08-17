@@ -27,7 +27,7 @@ class JPSSP_Sharing_Service {
 	}
 
 	function add_sharing_services() {
-		include_once dirname( __FILE__ ).'/class.sharing-sources.php';
+		include_once JPSSP__PLUGIN_DIR . 'class.sharing-sources.php';
 
 		if(!array_key_exists('feedly', $services)) {
 			$services['feedly'] = 'Share_Feedly';
