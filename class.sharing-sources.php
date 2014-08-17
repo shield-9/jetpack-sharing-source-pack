@@ -5,7 +5,7 @@ if(!function_exists('add_action')) {
 	exit;
 }
 
-class Sharing_Feedly extends Sharing_Source {
+class Share_Feedly extends Sharing_Source {
 	public $shortname = 'feedly';
 
 	function __construct($id, array $settings) {
