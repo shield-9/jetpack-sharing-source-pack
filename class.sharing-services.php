@@ -30,7 +30,7 @@ class JPSSP_Sharing_Service {
 		add_filter('sharing_services', array(&$this, 'add_sharing_services'));
 	}
 
-	function add_sharing_services() {
+	function add_sharing_services($services) {
 		include_once JPSSP__PLUGIN_DIR . 'class.sharing-sources.php';
 
 		if(!array_key_exists('feedly', $services)) {
