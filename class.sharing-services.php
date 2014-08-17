@@ -5,7 +5,11 @@ if(!function_exists('add_action')) {
 	exit;
 }
 
-add_action('jetpack_modules_loaded', array('JPSSP_Sharing_Service', 'init'));
+if(did_action('jetpack_modules_loaded')) {
+	JPSSP_Sharing_Service::init();
+} else {
+	add_action('jetpack_modules_loaded', array('JPSSP_Sharing_Service', 'init'));
+}
 
 class JPSSP_Sharing_Service {
 	static $instance;
