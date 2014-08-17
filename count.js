@@ -1,18 +1,21 @@
 jQuery(document).ready(function($) {
 	if ('undefined' != typeof WPCOM_sharing_counts) {
 		for (var url in WPCOM_sharing_counts) {
-			get_feedly_counts(url);
+			get_feedly_count(url);
 		}
 	}
-	function get_feedly_counts(url) {
-		feedly_api = 'http://cloud.feedly.com/v3/feeds/' + encodeURIComponent('feed/' + feed_URL);
-		$.getScript(feedly_api)
-			.done(function(data) {
-				if ( 'undefined' != typeof data.subscribers && ( data.subscribers * 1 ) > 0 ) {
-					
-					WPCOMSharing.inject_share_count('sharing-feedly-' + WPCOM_sharing_counts[ data.url ], data.count);
-				}
-			});
+
+	function get_feedly_count(url) {
+		feedly_api = '/feedly-api/';
+		$.ajaxSetup({
+			cache: true
+		});
+		$.getScript(feedly_api);
 	}
 });
 
+function update_feedly_count(data) {
+	if ( 'undefined' != typeof data.subscribers && ( data.subscribers * 1 ) > 0 ) {
+		WPCOMSharing.inject_share_count('sharing-feedly-' + post_id, data.subscribers);
+	}
+}
