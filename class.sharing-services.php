@@ -36,5 +36,7 @@ class JPSSP_Sharing_Service {
 		if(!array_key_exists('feedly', $services)) {
 			$services['feedly'] = 'Share_Feedly';
 		}
+		
+		return $services;
 	}
 }
