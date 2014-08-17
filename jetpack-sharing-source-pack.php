@@ -49,6 +49,8 @@ class Jetpack_Sharing_Source_Pack {
 
 	private function __construct() {
 		add_action('wp_loaded', array(&$this, 'register_assets'));
+		add_action('admin_enqueue_scripts', array(&$this, 'admin_menu_assets'));
+
 		if(did_action('plugins_loaded')) {
 			$this->require_services();
 		} else {
@@ -58,8 +60,14 @@ class Jetpack_Sharing_Source_Pack {
 	}
 
 	function register_assets() {
-	//	if(!wp_style_is('genericons', 'registered'))
-	//		wp_register_style('genericons', plugin_dir_url(__FILE__).'css/genericons.css', false, '3.0.3');
+		if(!wp_script_is('jpssp', 'registered'))
+			wp_register_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+	}
+
+	function admin_menu_assets($hook) {
+		if($hook == 'settings_page_sharing') {
+			wp_enqueue_style('jpssp');
+		}
 	}
 
 	function require_services() {
