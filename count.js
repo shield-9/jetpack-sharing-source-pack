@@ -6,7 +6,6 @@ jQuery(document).ready(function($) {
 	}
 
 	function get_feedly_count(url) {
-		feedly_api = '/feedly-api/';
 		$.ajaxSetup({
 			cache: true
 		});

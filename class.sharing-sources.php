@@ -42,7 +42,10 @@ class Share_Feedly extends Sharing_Source {
 	function display_footer() {
 		global $post;
 	?>
-		<script>post_id = <?php echo $post->ID; ?></script>
+		<script>
+			post_id = <?php echo $post->ID; ?>;
+			feedly_api = '<?php echo home_url(JPSSP_API::API_ENDPOINT.'/'); ?>';
+		</script>
 	<?php
 		wp_enqueue_script('jpssp', JPSSP__PLUGIN_URL .'count.js', array('jquery'), JPSSP__VERSION, true);
 		$this->js_dialog( $this->shortname );
