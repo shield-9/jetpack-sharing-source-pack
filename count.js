@@ -5,8 +5,8 @@ jQuery(document).ready(function($) {
 		}
 	}
 	function get_feedly_counts(url) {
-		feedly_api = 'http://cloud.feedly.com/v3/feeds/' + encodeURI('feed/' + feed_URL);
-		$.getJSON(feedly_api)
+		feedly_api = 'http://cloud.feedly.com/v3/feeds/' + encodeURIComponent('feed/' + feed_URL);
+		$.getScript(feedly_api)
 			.done(function(data) {
 				if ( 'undefined' != typeof data.subscribers && ( data.subscribers * 1 ) > 0 ) {
 					
