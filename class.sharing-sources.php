@@ -35,6 +35,14 @@ class Share_Feedly extends Sharing_Source {
 		);
 	}
 
+	function display_header() {
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_DIR. 'style.css', array('sharedaddy'), JPSSP__VERSION);
+	}
+
+	function display_footer() {
+		$this->js_dialog( $this->shortname );
+	}
+
 	function process_request( $post, array $post_data ) {
 		$feed_url = get_bloginfo('rss2_url');
 		$feedly_url = $this->http() . '://feedly.com/#subscription%2Ffeed%2F' . rawurlencode( $feed_url );

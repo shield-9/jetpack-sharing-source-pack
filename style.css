@@ -1,0 +1,18 @@
+.sd-social-icon .sd-content ul li.share-feedly a:before,
+.sd-social-text .sd-content ul li.share-feedly a:before,
+.sd-content ul li.share-feedly div.option.option-smart-off a:before,
+.sd-social-icon-text .sd-content li.share-feedly a:before {
+	content:" ";
+	background:url("https://raw.githubusercontent.com/wp-plugins/feedly-insight/master/images/feedly-follow-logo-share-icon.png") no-repeat;
+	height:16px;
+	width:16px;
+}
+
+.sd-social-icon .sd-content ul li.share-feedly a.no-text:before {
+	background:none !important;
+}
+
+.sd-social-icon .sd-content ul li.share-feedly[class*="share-"] a.sd-button {
+	background:#87c040 url("https://raw.githubusercontent.com/wp-plugins/feedly-insight/master/images/feedly-follow-circle-flat-green_28x28.png") no-repeat 2px 0;
+}
+
