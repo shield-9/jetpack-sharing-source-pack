@@ -68,7 +68,7 @@ class Jetpack_Sharing_Source_Pack {
 	}
 
 	static function plugin_textdomain() {
-		load_plugin_textdomain('jpssp', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+		load_plugin_textdomain('jpssp', false, dirname(plugin_basename(JPSSP__PLUGIN_FILE)) . '/languages/');
 	}
 
 	function plugin_row_meta($links, $file) {

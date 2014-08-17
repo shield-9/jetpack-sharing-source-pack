@@ -18,7 +18,7 @@ class Share_Feedly extends Sharing_Source {
 	}
 
 	function get_name() {
-		return __('Feedly', 'jpssp')
+		return __('Feedly', 'jpssp');
 	}
 
 	function get_display($post) {
