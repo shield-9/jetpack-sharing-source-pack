@@ -14,7 +14,7 @@ if(did_action('jetpack_modules_loaded')) {
 class JPSSP_Sharing_Service {
 	static $instance;
 
-	function init() {
+	static function init() {
 		if(!Jetpack::is_module_active('sharedaddy')) {
 			return false;
 		}

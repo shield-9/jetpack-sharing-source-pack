@@ -6,7 +6,7 @@ if(!function_exists('add_action')) {
 }
 
 class Sharing_Feedly extends Sharing_Source {
-	$shortname = 'feedly';
+	public $shortname = 'feedly';
 
 	function __construct($id, array $settings) {
 		parent::__construct( $id, $settings );
