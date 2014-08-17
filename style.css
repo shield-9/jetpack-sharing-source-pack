@@ -16,3 +16,15 @@
 	background:#87c040 url("https://raw.githubusercontent.com/wp-plugins/feedly-insight/master/images/feedly-follow-circle-flat-green_28x28.png") no-repeat 2px 0;
 }
 
+li.service.share-feedly span:before {
+	content:" ";
+	background:url("https://raw.githubusercontent.com/wp-plugins/feedly-insight/master/images/feedly-follow-logo-share-icon.png") no-repeat;
+	height:16px;
+	width:16px;
+}
+
+.preview-feedly .option-smart-on {
+	background:url("https://raw.githubusercontent.com/wp-plugins/feedly-insight/master/images/smart-feedly.png") no-repeat scroll left top/110px 20px;
+	height:20px;
+	width:110px;
+}
