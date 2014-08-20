@@ -4,7 +4,7 @@
 * **Tags**: Jetpack, social, sharing, share, SNS, 
 * **Requires at least**: 3.8
 * **Tested up to**: 3.9
-* **Stable tag**: 0.1.0
+* **Stable tag**: 0.1.1
 * **License**: AGPLv3 or later
 * **License URI**: http://www.gnu.org/licenses/agpl.txt
 
@@ -49,11 +49,17 @@ If you're in supported environment, please create [pull request](https://github.
 2. Status Page
 
 ## Changelog
+### 0.1.1
+* Bundle All Resources
+* [`git diff 0.1.0...0.1.1`](https://github.com/shield-9/jetpack-sharing-source-pack/compare/0.1.0...0.1.1)
 
 ### 0.1.0
 * Initial Beta Release
 
 ## Upgrade Notice
+
+### 0.1.1
+* None
 
 ### 0.1.0
 * None
