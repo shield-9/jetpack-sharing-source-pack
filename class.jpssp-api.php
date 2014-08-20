@@ -64,7 +64,7 @@ class JPSSP_API {
 			}
 
 			nocache_headers();
-			header('Content-Type: application/javascript; charset='.get_option('charset'));
+			header('Content-Type: application/javascript; charset=UTF-8');
 
 			$callback = (!empty($_GET['callback'])) ? esc_js($_GET['callback']) : 'update_feedly_count';
 			echo $callback . '(';
