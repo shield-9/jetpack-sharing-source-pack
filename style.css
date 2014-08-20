@@ -28,13 +28,15 @@ li.service.share-feedly span:before {
 }
 
 .preview-feedly .option-smart-on {
-	background-image:url("https://raw.githubusercontent.com/wp-plugins/feedly-insight/master/images/smart-feedly.png");
+	background-image:url("images/feedly-follow-rectangle-sample.png");
+	background-image:-webkit-image-set(url("images/feedly-follow-rectangle-sample.png") 1x, url("images/feedly-follow-rectangle-sample@2x.png") 2x);
+	background-image:image-set(url("images/feedly-follow-rectangle-sample.png") 1x, url("images/feedly-follow-rectangle-sample@2x.png") 2x);
 	background-repeat:no-repeat;
 	background-attachment:scroll;
 	background-position:left top;
-	background-size:110px 20px;
+	background-size:94px 20px;
 	height:20px;
-	width:110px;
+	width:94px;
 }
 
 .sd-social-official .sd-content li.share-feedly .feedly_button {
@@ -63,9 +65,9 @@ li.service.share-feedly span:before {
 }
 
 .sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:button"] i {
-	background-image:url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png");
-	background-image:-webkit-image-set(url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png") 2x);
-	background-image:image-set(url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png") 2x);
+	background-image:url("images/feedly-follow-rectangle.png");
+	background-image:-webkit-image-set(url("images/feedly-follow-rectangle.png") 1x, url("images/feedly-follow-rectangle@2x.png") 2x);
+	background-image:image-set(url("images/feedly-follow-rectangle.png") 1x, url("images/feedly-follow-rectangle@2x.png") 2x);
 }
 
 .sd-social-official .sd-content li.share-feedly .feedly_button .count-wrap,
