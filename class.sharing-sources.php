@@ -17,8 +17,24 @@ class Share_Feedly extends Sharing_Source {
 			$this->smart = false;
 	}
 
+	function get_link_addr( $url, $query = '' ) {
+		$url = apply_filters( 'sharing_display_link', $url );
+		if ( !empty( $query ) ) {
+			if ( stripos( $url, '?' ) === false )
+				$url .= '?'.$query;
+			else
+				$url .= '&amp;'.$query;
+		}
+
+		return $url;
+	}
+
 	function get_name() {
 		return __('Feedly', 'jpssp');
+	}
+
+	function has_custom_button_style() {
+		return $this->smart;
 	}
 
 	function get_display($post) {
@@ -26,13 +42,46 @@ class Share_Feedly extends Sharing_Source {
 			sharing_register_post_for_share_counts( $post->ID );
 		}
 
-		return $this->get_link(
-			get_permalink( $post->ID ),
-			_x( 'Feedly', 'share to', 'jpssp' ),
-			__( 'Subscribe on Feedly', 'jpssp' ),
-			'share=feedly',
-			'sharing-feedly-' . $post->ID
-		);
+		if ( $this->smart ) {
+			$button = '';
+			$button .= sprintf('<div class="feedly_button"><div class="feedly" data-href="%s">', esc_attr( get_bloginfo('rss2_url') ));
+			$button .= '<table cellpadding="0" cellspacing="0">';
+			$button .= '<tr>';
+			$button .= '<td>';
+
+			$button .= '<div style="" data-scribe="component:button">';
+			$button .= sprintf(
+					'<a rel="nofollow" href="%s" class="share-feedly">%s</a>',
+					esc_url($this->get_link_addr( get_permalink( $post->ID ), 'share=feedly' )),
+					'<i />'
+				);
+			$button .= '</div>';
+
+			$button .= '</td>';
+			$button .= '<td>';
+
+			$button .= '<div data-scribe="component:count">';
+			$button .= '';
+			$button .= '';
+			$button .= '';
+			$button .= '';
+			$button .= '</div>';
+
+			$button .= '</td>';
+			$button .= '</tr>';
+			$button .= '</table>';
+			$button .= '</div></div>';
+			
+			return $button;
+		} else {
+			return $this->get_link(
+					get_permalink( $post->ID ),
+					_x( 'Feedly', 'share to', 'jpssp' ),
+					__( 'Subscribe on Feedly', 'jpssp' ),
+					'share=feedly',
+					'sharing-feedly-' . $post->ID
+				);
+		}
 	}
 
 	function display_header() {
@@ -48,7 +97,7 @@ class Share_Feedly extends Sharing_Source {
 		</script>
 	<?php
 		wp_enqueue_script('jpssp', JPSSP__PLUGIN_URL .'count.js', array('jquery'), JPSSP__VERSION, true);
-		$this->js_dialog( $this->shortname );
+		$this->js_dialog( $this->shortname, array( 'width' => 1024, 'height' => 576 ) );
 	}
 
 	function process_request( $post, array $post_data ) {

@@ -18,7 +18,7 @@ li.service.share-feedly span:before {
 	background:none !important;
 }
 
-.sd-social-icon .sd-content ul li.share-feedly[class*="share-"] a.sd-button {
+.sd-social-icon .sd-content ul li[class*="share-"].share-feedly a.sd-button {
 	background-color:#87c040;
 	background-image:url("images/feedly-follow-circle.png");
 	background-image:image-set(url("images/feedly-follow-circle.png") 1x, url("images/feedly-follow-circle@2x.png") 2x);
@@ -35,4 +35,24 @@ li.service.share-feedly span:before {
 	background-size:110px 20px;
 	height:20px;
 	width:110px;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button td,
+.sd-social-official .sd-content li.share-feedly .feedly_button th,
+.sd-social-official .sd-content li.share-feedly .feedly_button tr {
+	background-color: transparent;
+	border:none;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button div[data-scribe="component:button"] {
+	width:61px; height:20px;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button div[data-scribe="component:button"] i {
+	display:inline-block;
+	width:61px;
+	height:20px;
+	background-image:url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png");
+	background-image:-webkit-image-set(url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png") 2x);
+	background-image:image-set(url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png") 2x);
 }
