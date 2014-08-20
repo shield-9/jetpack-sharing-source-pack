@@ -1,0 +1,119 @@
+.sd-social-icon .sd-content ul li.share-feedly a:before,
+.sd-social-text .sd-content ul li.share-feedly a:before,
+.sd-content ul li.share-feedly div.option.option-smart-off a:before,
+.sd-social-icon-text .sd-content li.share-feedly a:before,
+li.service.share-feedly span:before {
+	content:" ";
+	background-image:url("images/feedly-follow-feedlyshape.png");
+	background-image:image-set(url("images/feedly-follow-feedlyshape.png") 1x, url("images/feedly-follow-feedlyshape@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/feedly-follow-feedlyshape.png") 1x, url("images/feedly-follow-feedlyshape@2x.png") 2x);
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size:16px 14.2px;
+	height:16px;
+	width:16px;
+}
+
+.sd-social-icon .sd-content ul li.share-feedly a.no-text:before {
+	background:none !important;
+}
+
+.sd-social-icon .sd-content ul li[class*="share-"].share-feedly a.sd-button {
+	background-color:#87c040;
+	background-image:url("images/feedly-follow-circle.png");
+	background-image:image-set(url("images/feedly-follow-circle.png") 1x, url("images/feedly-follow-circle@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/feedly-follow-circle.png") 1x, url("images/feedly-follow-circle@2x.png") 2x);
+	background-repeat:no-repeat;
+	background-position:2.3px 2px;
+}
+
+.preview-feedly .option-smart-on {
+	background-image:url("https://raw.githubusercontent.com/wp-plugins/feedly-insight/master/images/smart-feedly.png");
+	background-repeat:no-repeat;
+	background-attachment:scroll;
+	background-position:left top;
+	background-size:110px 20px;
+	height:20px;
+	width:110px;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button {
+	line-height:20px;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button td,
+.sd-social-official .sd-content li.share-feedly .feedly_button th,
+.sd-social-official .sd-content li.share-feedly .feedly_button tr {
+	background-color: transparent;
+	border:none;
+	padding: 0;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:button"],
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:button"] i,
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"],
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"] .count-number {
+	display:inline-block;
+	height:20px;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:button"],
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:button"] i {
+	width:61px;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:button"] i {
+	background-image:url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png");
+	background-image:-webkit-image-set(url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png") 2x);
+	background-image:image-set(url("http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png") 2x);
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button .count-wrap,
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"],
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"] .count-number {
+	vertical-align:top;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button .count-wrap {
+	display:none;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"] .count-number {
+	box-sizing: border-box;
+	background: #fff;
+	padding: 0 9px;
+	margin: 0 0 0 6px;
+	border: 1px solid #9197a3;
+	border-radius: 2px;
+	max-width: 100%;
+	min-width: 15px;
+	color:#6a7180;
+	white-space: nowrap;
+	text-align: center;
+	line-height: 18px;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"] .count-arrow {
+	height: 0;
+	left: 2px;
+	position: relative;
+	top: -15px;
+	width: 5px;
+	z-index: 2;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"] .count-arrow s,
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"] .count-arrow i {
+	border-color: transparent #9197a3;
+	border-style: solid;
+	border-width: 4px 5px 4px 0;
+	display: block;
+	position: relative;
+	top: 1px;
+}
+
+.sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"] .count-arrow i {
+	border-right-color: #fff;
+	left: 2px;
+	top: -7px;
+}
