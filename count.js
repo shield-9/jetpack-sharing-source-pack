@@ -24,6 +24,7 @@ jQuery(document).ready(function($) {
 function update_feedly_count(data) {
 	if(data.smart) {
 		jQuery('.sd-social-official .feedly_button .count-number span').text(data.subscribers);
+		jQuery('.sd-social-official .feedly_button .count-wrap').show();
 	} else {
 		if ( 'undefined' != typeof data.subscribers && ( data.subscribers * 1 ) > 0 ) {
 			WPCOMSharing.inject_share_count('sharing-feedly-' + post_id, data.subscribers);

@@ -74,6 +74,10 @@ li.service.share-feedly span:before {
 	vertical-align:top;
 }
 
+.sd-social-official .sd-content li.share-feedly .feedly_button .count-wrap {
+	display:none;
+}
+
 .sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:count"] .count-number {
 	box-sizing: border-box;
 	background: #fff;
