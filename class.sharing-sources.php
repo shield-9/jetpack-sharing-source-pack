@@ -42,34 +42,40 @@ class Share_Feedly extends Sharing_Source {
 			sharing_register_post_for_share_counts( $post->ID );
 		}
 
+		$feed_id = 'feed/'.get_bloginfo('rss2_url');
+
 		if ( $this->smart ) {
 			$button = '';
-			$button .= sprintf('<div class="feedly_button"><div class="feedly" data-href="%s">', esc_attr( get_bloginfo('rss2_url') ));
-			$button .= '<table cellpadding="0" cellspacing="0">';
-			$button .= '<tr>';
-			$button .= '<td>';
+			$button .= '<div class="feedly_button"><div class="feedly">';
+			$button .= '<table cellpadding="0" cellspacing="0"><tr>';
+			$button .= '<td class="button-wrap">';
 
-			$button .= '<div style="" data-scribe="component:button">';
+			$button .= '<div data-scribe="component:button">';
 			$button .= sprintf(
 					'<a rel="nofollow" href="%s" class="share-feedly">%s</a>',
 					esc_url($this->get_link_addr( get_permalink( $post->ID ), 'share=feedly' )),
-					'<i />'
+					'<i></i>'
 				);
 			$button .= '</div>';
 
 			$button .= '</td>';
-			$button .= '<td>';
+			$button .= '<td class="count-wrap">';
 
 			$button .= '<div data-scribe="component:count">';
-			$button .= '';
-			$button .= '';
-			$button .= '';
-			$button .= '';
+			$button .= '<div class="count-number">';
+			$button .= sprintf(
+					'<span data-feed-id="%s">-</span>',
+					rawurlencode( $feed_id )
+				);
+			$button .= '</div>';
+			$button .= '<div class="count-arrow">';
+			$button .= '<s></s>';
+			$button .= '<i></i>';
+			$button .= '</div>';
 			$button .= '</div>';
 
 			$button .= '</td>';
-			$button .= '</tr>';
-			$button .= '</table>';
+			$button .= '</tr></table>';
 			$button .= '</div></div>';
 			
 			return $button;
@@ -92,8 +98,13 @@ class Share_Feedly extends Sharing_Source {
 		global $post;
 	?>
 		<script>
-			post_id = <?php echo $post->ID; ?>;
-			feedly_api = '<?php echo home_url(JPSSP_API::API_ENDPOINT.'/'); ?>';
+			var post_id = <?php echo $post->ID; ?>;
+			var feedly_api = '<?php echo home_url(JPSSP_API::API_ENDPOINT.'/'); ?>';
+			<?php if($this->smart): ?>
+			var feedly_smart = true;
+			<?php else: ?>
+			var feedly_smart = false;
+			<?php endif; ?>
 		</script>
 	<?php
 		wp_enqueue_script('jpssp', JPSSP__PLUGIN_URL .'count.js', array('jquery'), JPSSP__VERSION, true);
@@ -102,7 +113,7 @@ class Share_Feedly extends Sharing_Source {
 
 	function process_request( $post, array $post_data ) {
 		$feed_url = get_bloginfo('rss2_url');
-		$feedly_url = $this->http() . '://feedly.com/#subscription%2Ffeed%2F' . rawurlencode( $feed_url );
+		$feedly_url = $this->http() . '://feedly.com/#' . rawurlencode( 'subscription/'.$feed_url );
 
 		// Redirect to Feedly
 		wp_redirect( $feedly_url );

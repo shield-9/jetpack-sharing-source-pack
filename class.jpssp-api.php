@@ -63,13 +63,26 @@ class JPSSP_API {
 				$status = wp_remote_retrieve_response_code($response);
 			}
 
+			$body = json_decode(wp_remote_retrieve_body($response));
+
 			nocache_headers();
 			header('Content-Type: application/javascript; charset=UTF-8');
 
-			$callback = (!empty($_GET['callback'])) ? esc_js($_GET['callback']) : 'update_feedly_count';
+			$callback = 'update_feedly_count';
+			if(!empty($_GET['callback']))
+				$callback = esc_js($_GET['callback']);
+
+			switch($wp_query->query[self::API_ENDPOINT]) {
+				case 'smart':
+					$body->{'smart'} = true;
+					break;
+				default:
+					$body->{'smart'} = false;
+			}
+
 			echo $callback . '(';
 			if(!is_wp_error($response) && $status == 200) {
-				echo wp_remote_retrieve_body($response);
+				echo json_encode($body, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
 			} else {
 				status_header($status);
 				echo json_encode(array(
