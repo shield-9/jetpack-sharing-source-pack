@@ -8,7 +8,7 @@
 * **License**: AGPLv3 or later
 * **License URI**: http://www.gnu.org/licenses/agpl.txt
 
-*Add more services to Jepack Sharing*
+*Add more services to Jetpack Sharing*
 
 ## Description
 
