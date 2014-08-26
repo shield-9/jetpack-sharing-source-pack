@@ -120,3 +120,72 @@ class Share_Feedly extends Sharing_Source {
 		die();
 	}
 }
+
+class Share_LINE extends Sharing_Source {
+	var $shortname = 'line';
+	public function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if ( 'official' == $this->button_style )
+			$this->smart = true;
+		else
+			$this->smart = false;
+	}
+
+	public function get_name() {
+		return __( 'LINE', 'jpssp' );
+	}
+
+	public function has_custom_button_style() {
+		return $this->smart;
+	}
+
+	function guess_locale_from_lang( $lang ) {
+		if(strpos($lang, 'ja') === 0)
+			return 'ja';
+
+		if(strpos($lang, 'zh') === 0)
+			return 'zh-hant';
+
+		return 'en';
+	}
+
+	public function get_display( $post ) {
+		$locale = $this->guess_locale_from_lang( get_locale() );
+
+		if ( $this->smart )
+			return sprintf(
+				'<div class="line_button"><a href="http://line.me/R/msg/text/?%1$s%0D%0A%2$s" class="share-line %3$s" title="%4$s"></a></div>',
+				rawurlencode( $this->get_share_title( $post->ID ) ),
+				rawurlencode( $this->get_share_url( $post->ID ) ),
+				esc_attr($locale),
+				esc_attr__( 'LINE it!', 'jpssp' )
+			);
+		else
+			return $this->get_link( get_permalink( $post->ID ), _x( 'LINE', 'share to', 'jpssp' ), __( 'Click to share on LINE', 'jpssp' ), 'share=line' );
+	}
+
+	function display_header() {
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+	}
+
+	function display_footer() {
+		$this->js_dialog( $this->shortname );
+	}
+
+	public function process_request( $post, array $post_data ) {
+		$line_url = sprintf(
+			'http://line.me/R/msg/text/?%1$s%0D%0A%2$s',
+			rawurlencode( $this->get_share_title( $post->ID ) ),
+			rawurlencode( $this->get_share_url( $post->ID ) )
+		);
+
+		// Record stats
+		parent::process_request( $post, $post_data );
+
+		// Redirect to Stumbleupon
+		wp_redirect( $line_url );
+		die();
+	}
+}
+
