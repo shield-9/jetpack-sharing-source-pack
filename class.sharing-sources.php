@@ -123,7 +123,8 @@ class Share_Feedly extends Sharing_Source {
 
 class Share_LINE extends Sharing_Source {
 	var $shortname = 'line';
-	public function __construct( $id, array $settings ) {
+
+	function __construct( $id, array $settings ) {
 		parent::__construct( $id, $settings );
 
 		if ( 'official' == $this->button_style )
@@ -132,15 +133,15 @@ class Share_LINE extends Sharing_Source {
 			$this->smart = false;
 	}
 
-	public function get_name() {
+	function get_name() {
 		return __( 'LINE', 'jpssp' );
 	}
 
-	public function has_custom_button_style() {
+	function has_custom_button_style() {
 		return $this->smart;
 	}
 
-	function guess_locale_from_lang( $lang ) {
+	private function guess_locale_from_lang( $lang ) {
 		if(strpos($lang, 'ja') === 0)
 			return 'ja';
 
@@ -150,7 +151,7 @@ class Share_LINE extends Sharing_Source {
 		return 'en';
 	}
 
-	public function get_display( $post ) {
+	function get_display( $post ) {
 		$locale = $this->guess_locale_from_lang( get_locale() );
 
 		if ( $this->smart )
@@ -173,7 +174,7 @@ class Share_LINE extends Sharing_Source {
 		$this->js_dialog( $this->shortname );
 	}
 
-	public function process_request( $post, array $post_data ) {
+	function process_request( $post, array $post_data ) {
 		$line_url = sprintf(
 			'http://line.me/R/msg/text/?%1$s%0D%0A%2$s',
 			rawurlencode( $this->get_share_title( $post->ID ) ),
@@ -183,9 +184,53 @@ class Share_LINE extends Sharing_Source {
 		// Record stats
 		parent::process_request( $post, $post_data );
 
-		// Redirect to Stumbleupon
+		// Redirect to LINE
 		wp_redirect( $line_url );
 		die();
 	}
 }
 
+class Share_Delicious extends Sharing_Source {
+	var $shortname = 'delicious';
+
+	function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if ( 'official' == $this->button_style )
+			$this->smart = true;
+		else
+			$this->smart = false;
+	}
+
+	function get_name() {
+		return __( 'Delicious', 'jpssp' );
+	}
+
+	function get_display( $post ) {
+		return $this->get_link( get_permalink( $post->ID ), _x( 'Delicious', 'share to', 'jpssp' ), __( 'Click to save on Delicious', 'jpssp' ), 'share=delicious' );
+	}
+
+	function display_header() {
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+	}
+
+	function display_footer() {
+		$this->js_dialog( $this->shortname, array( 'width' => 550, 'height' => 550 ) );
+	}
+
+	function process_request( $post, array $post_data ) {
+		$delicious_url = sprintf(
+			'https://delicious.com/save?v=5&provider=%1$s&noui&jump=close&url=%2$s&title=%3$s',
+			rawurlencode( get_bloginfo('name') ),
+			rawurlencode( $this->get_share_url( $post->ID ) ),
+			rawurlencode( $this->get_share_title( $post->ID ) )
+		);
+
+		// Record stats
+		parent::process_request( $post, $post_data );
+
+		// Redirect to Delicious
+		wp_redirect( $delicious_url );
+		die();
+	}
+}

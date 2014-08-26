@@ -39,6 +39,9 @@ class JPSSP_Sharing_Service {
 		if(!array_key_exists('line', $services)) {
 			$services['line'] = 'Share_LINE';
 		}
+		if(!array_key_exists('delicious', $services)) {
+			$services['delicious'] = 'Share_Delicious';
+		}
 		
 		return $services;
 	}
