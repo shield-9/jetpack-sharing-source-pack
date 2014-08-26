@@ -155,7 +155,7 @@ class Share_LINE extends Sharing_Source {
 
 		if ( $this->smart )
 			return sprintf(
-				'<div class="line_button"><a href="http://line.me/R/msg/text/?%1$s%0D%0A%2$s" class="%3$s" title="%4$s"></a></div>',
+				'<div class="line_button"><a href="http://line.me/R/msg/text/?%1$s%0D%0A%2$s" class="share-line %3$s" title="%4$s"></a></div>',
 				rawurlencode( $this->get_share_title( $post->ID ) ),
 				rawurlencode( $this->get_share_url( $post->ID ) ),
 				$locale,
