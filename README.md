@@ -43,6 +43,7 @@ If you're in supported environment, please create [pull request](https://github.
 This plugin has no screen.
 
 ## Changelog
+
 ### 0.1.1
 * Bundle All Resources
 * [`git diff 0.1.0...0.1.1`](https://github.com/shield-9/jetpack-sharing-source-pack/compare/0.1.0...0.1.1)
