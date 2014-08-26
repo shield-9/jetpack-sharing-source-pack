@@ -165,6 +165,14 @@ class Share_LINE extends Sharing_Source {
 			return $this->get_link( get_permalink( $post->ID ), _x( 'LINE', 'share to', 'jpssp' ), __( 'Click to share on LINE', 'jpssp' ), 'share=line' );
 	}
 
+	function display_header() {
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+	}
+
+	function display_footer() {
+		$this->js_dialog( $this->shortname );
+	}
+
 	public function process_request( $post, array $post_data ) {
 		$line_url = sprintf(
 			'http://line.me/R/msg/text/?%1$s%0D%0A%2$s',
