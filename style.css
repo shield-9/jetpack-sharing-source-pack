@@ -157,7 +157,7 @@ li.service.share-line span:before {
 
 /* Icon only */
 .sd-social-icon .sd-content ul li[class*="share-"].share-line a.sd-button {
-	background-color:#87c040;
+	background-color:#1ec221;
 	background-image:url("images/LINE-circle.png");
 	background-image:image-set(url("images/LINE-circle.png") 1x);
 	background-image:-webkit-image-set(url("images/LINE-circle.png") 1x);
