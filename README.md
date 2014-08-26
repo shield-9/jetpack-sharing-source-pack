@@ -42,11 +42,7 @@ If you're in supported environment, please create [pull request](https://github.
 
 ## Screenshots
 
-![Screenshot 1](screenshot-1.png)
-![Screenshot 2](screenshot-2.png)
-
-1. Main Page
-2. Status Page
+This plugin has no screen.
 
 ## Changelog
 ### 0.1.1

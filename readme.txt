@@ -1,5 +1,5 @@
 === Jetpack Sharing Source Pack ===
-Contributors: extendwings, headonfire,
+Contributors: extendwings
 Donate link: http://www.extendwings.com/donate/
 Tags: Jetpack, social, sharing, share, SNS, 
 Requires at least: 3.8
@@ -42,8 +42,7 @@ If you're in supported environment, please create [pull request](https://github.
 
 == Screenshots ==
 
-1. Main Page
-2. Status Page
+This plugin has no screen.
 
 == Changelog ==
 
