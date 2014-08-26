@@ -158,8 +158,8 @@ class Share_LINE extends Sharing_Source {
 				'<div class="line_button"><a href="http://line.me/R/msg/text/?%1$s%0D%0A%2$s" class="share-line %3$s" title="%4$s"></a></div>',
 				rawurlencode( $this->get_share_title( $post->ID ) ),
 				rawurlencode( $this->get_share_url( $post->ID ) ),
-				$locale,
-				__( 'LINE it!', 'jpssp' )
+				esc_attr($locale),
+				esc_attr__( 'LINE it!', 'jpssp' )
 			);
 		else
 			return $this->get_link( get_permalink( $post->ID ), _x( 'LINE', 'share to', 'jpssp' ), __( 'Click to share on LINE', 'jpssp' ), 'share=line' );
