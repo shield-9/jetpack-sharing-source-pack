@@ -183,9 +183,65 @@ class Share_LINE extends Sharing_Source {
 		// Record stats
 		parent::process_request( $post, $post_data );
 
-		// Redirect to Stumbleupon
+		// Redirect to LINE
 		wp_redirect( $line_url );
 		die();
 	}
 }
 
+class Share_Delicious extends Sharing_Source {
+	var $shortname = 'delicious';
+	public function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if ( 'official' == $this->button_style )
+			$this->smart = true;
+		else
+			$this->smart = false;
+	}
+
+	public function get_name() {
+		return __( 'Delicious', 'jpssp' );
+	}
+
+	public function has_custom_button_style() {
+		return $this->smart;
+	}
+
+	public function get_display( $post ) {
+		if ( $this->smart )
+			return sprintf(
+				'<a href="https://delicious.com/save?v=5&provider=%1$s&noui&jump=close&url=%2$s&title=%3$s"><img src="https://delicious.com/img/logo.png" height="16" width="16" alt="Delicious"> %4$s</a>',
+				rawurlencode( get_bloginfo('name') ),
+				rawurlencode( $this->get_share_url( $post->ID ) ),
+				rawurlencode( $this->get_share_title( $post->ID ) ),
+				esc_attr__( 'Save this on Delicious', 'jpssp' )
+			);
+		else
+			return $this->get_link( get_permalink( $post->ID ), _x( 'Delicious', 'share to', 'jpssp' ), __( 'Click to save on Delicious', 'jpssp' ), 'share=delicious' );
+	}
+
+	function display_header() {
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+	}
+
+	function display_footer() {
+		$this->js_dialog( $this->shortname );
+	}
+
+	public function process_request( $post, array $post_data ) {
+		$delicious_url = sprintf(
+			'https://delicious.com/save?v=5&provider=%1$s&noui&jump=close&url=%2$s&title=%3$s',
+			rawurlencode( get_bloginfo('name') ),
+			rawurlencode( $this->get_share_url( $post->ID ) ),
+			rawurlencode( $this->get_share_title( $post->ID ) )
+		);
+
+		// Record stats
+		parent::process_request( $post, $post_data );
+
+		// Redirect to Delicious
+		wp_redirect( $delicious_url );
+		die();
+	}
+}
