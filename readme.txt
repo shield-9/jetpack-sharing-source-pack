@@ -17,8 +17,6 @@ This supplies additional Jetpack sharing sources for your website.
 
 Any suggestion to add new service is welcome! Please let me know from [here](https://www.extendwings.com/contact/en/).
 
-All files in this repo is licensed under [GNU AFFERO GENERAL PUBLIC LICENSE, Version 3](http://www.gnu.org/licenses/agpl.txt).
-
 ### Notice
 
 Don't forget to install Jetpack!
