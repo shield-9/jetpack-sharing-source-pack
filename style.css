@@ -119,3 +119,37 @@ li.service.share-feedly span:before {
 	left: 2px;
 	top: -7px;
 }
+
+.sd-social-official .sd-content li.share-line .line_button {
+	line-height:20px;
+}
+
+.sd-social-official .sd-content li.share-line .line_button a {
+	height: 20px;
+	display: inline-block;
+}
+
+.sd-social-official .sd-content li.share-line .line_button a.en {
+	width: 78px;
+	background-image: url("http://media.line.me/img/button/en/78x20.png");
+	background-image:image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
+	background-image:-webkit-image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
+	background-size: 78px, 20px;
+}
+
+.sd-social-official .sd-content li.share-line .line_button a.ja {
+	width: 82px;
+	background-image: url("http://media.line.me/img/button/ja/82x20.png");
+	background-image:image-set(url("http://media.line.me/img/button/ja/82x20.png") 2x);
+	background-image:-webkit-image-set(url("http://media.line.me/img/button/ja/82x20.png") 2x);
+	background-size: 82px, 20px;
+}
+
+.sd-social-official .sd-content li.share-line .line_button a.zh-hant {
+	width: 84px;
+	background-image: url("http://media.line.me/img/button/zh-hant/84x20.png");
+	background-image:image-set(url("http://media.line.me/img/button/zh-hant/84x20.png") 2x);
+	background-image:-webkit-image-set(url("http://media.line.me/img/button/zh-hant/84x20.png") 2x);
+	background-size: 84px, 20px;
+}
+

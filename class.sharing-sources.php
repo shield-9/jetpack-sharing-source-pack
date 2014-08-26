@@ -152,28 +152,13 @@ class Share_LINE extends Sharing_Source {
 
 	public function get_display( $post ) {
 		$locale = $this->guess_locale_from_lang( get_locale() );
-		$image = array(
-			'en' => array(
-				'url'   => 'http://media.line.me/img/button/en/78x20.png', // LINE it!
-				'width' => 78
-			),
-			'ja' => array(
-				'url'   => 'http://media.line.me/img/button/ja/82x20.png', // LINEで送る
-				'width' => 82
-			),
-			'zh-hant' => array(
-				'url'   => 'http://media.line.me/img/button/zh-hant/84x20.png', // 用LINE傳送
-				'width' => 84
-			),
-		);
 
 		if ( $this->smart )
 			return sprintf(
-				'<div class="line_button"><a href="http://line.me/R/msg/text/?%1$s%0D%0A%2$s"><img src="%3$s" style="width: %4$dpx; height: 20px;" alt="%5$s" /></a></div>',
+				'<div class="line_button"><a href="http://line.me/R/msg/text/?%1$s%0D%0A%2$s" class="%3$s" title="%4$s"></a></div>',
 				rawurlencode( $this->get_share_title( $post->ID ) ),
 				rawurlencode( $this->get_share_url( $post->ID ) ),
-				$image[$locale]['url'],
-				$image[$locale]['width'],
+				$locale,
 				__( 'LINE it!', 'jpssp' )
 			);
 		else
