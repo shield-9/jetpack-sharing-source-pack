@@ -3,7 +3,7 @@
  * Plugin Name: Jetpack Sharing Source Pack
  * Plugin URI: http://wordpress.org/plugins/jpssp/
  * Description: Add more services to Jepack Sharing
- * Version: 0.1.1
+ * Version: 0.2.0-dev
  * Author: Daisuke Takahashi(Extend Wings)
  * Author URI: http://www.extendwings.com
  * License: AGPLv3 or later
@@ -24,7 +24,7 @@ if(version_compare(get_bloginfo('version'), '3.8', '<')) {
 define('JPSSP__PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('JPSSP__PLUGIN_URL', plugin_dir_url(__FILE__));
 define('JPSSP__PLUGIN_FILE', __FILE__);
-define('JPSSP__VERSION' , '0.1.0-alpha');
+define('JPSSP__VERSION' , '0.2.0-dev');
 
 add_action('init', array('Jetpack_Sharing_Source_Pack', 'init'));
 
