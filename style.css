@@ -149,7 +149,7 @@ li.service.share-line span:before {
 	background-image:-webkit-image-set(url("images/LINE-shape.png") 1x, url("images/LINE-shape@2x.png") 2x);
 	background-repeat: no-repeat;
 	background-position:center;
-	background-size:28px 28px;
+	background-size:16px 16px;
 	height:16px;
 	width:16px;
 }
@@ -166,8 +166,8 @@ li.service.share-line span:before {
 	background-image:image-set(url("images/LINE-shape-white.png") 1x, url("images/LINE-shape-white@2x.png") 2x);
 	background-image:-webkit-image-set(url("images/LINE-shape-white.png") 1x, url("images/LINE-shape-white@2x.png") 2x);
 	background-repeat:no-repeat;
-	background-position:-4px -4px;
-	background-size:40px 40px;
+	background-position:center;
+	background-size:20px 20px;
 }
 
 /* Official Button (Admin Preview) */
@@ -177,6 +177,8 @@ li.service.share-line span:before {
 	background-image: url("images/LINE-rectangle-en.png");
 	background-image:image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
 	background-image:-webkit-image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
+	background-repeat: no-repeat;
+	background-position:center;
 	background-size: 78px, 20px;
 }
 
@@ -188,6 +190,8 @@ li.service.share-line span:before {
 .sd-social-official .sd-content li.share-line .line_button a {
 	height: 20px;
 	display: inline-block;
+	background-repeat: no-repeat;
+	background-position:center;
 }
 
 .sd-social-official .sd-content li.share-line .line_button a.en {
