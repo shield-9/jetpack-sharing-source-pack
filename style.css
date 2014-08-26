@@ -1,3 +1,8 @@
+/**
+* 1.1 Feedly
+*/
+
+/* Icon and Text */
 .sd-social-icon .sd-content ul li.share-feedly a:before,
 .sd-social-text .sd-content ul li.share-feedly a:before,
 .sd-content ul li.share-feedly div.option.option-smart-off a:before,
@@ -14,10 +19,12 @@ li.service.share-feedly span:before {
 	width:16px;
 }
 
+/* Text only */
 .sd-social-icon .sd-content ul li.share-feedly a.no-text:before {
 	background:none !important;
 }
 
+/* Icon only */
 .sd-social-icon .sd-content ul li[class*="share-"].share-feedly a.sd-button {
 	background-color:#87c040;
 	background-image:url("images/feedly-follow-circle.png");
@@ -27,6 +34,7 @@ li.service.share-feedly span:before {
 	background-position:2.3px 2px;
 }
 
+/* Official Button (Admin Preview) */
 .preview-feedly .option-smart-on {
 	background-image:url("images/feedly-follow-rectangle-sample.png");
 	background-image:-webkit-image-set(url("images/feedly-follow-rectangle-sample.png") 1x, url("images/feedly-follow-rectangle-sample@2x.png") 2x);
@@ -39,6 +47,7 @@ li.service.share-feedly span:before {
 	width:94px;
 }
 
+/* Official Button */
 .sd-social-official .sd-content li.share-feedly .feedly_button {
 	line-height:20px;
 }
@@ -120,6 +129,53 @@ li.service.share-feedly span:before {
 	top: -7px;
 }
 
+/**
+* 1.2 LINE
+*/
+
+/* Icon and Text */
+.sd-social-icon .sd-content ul li.share-line a:before,
+.sd-social-text .sd-content ul li.share-line a:before,
+.sd-content ul li.share-line div.option.option-smart-off a:before,
+.sd-social-icon-text .sd-content li.share-line a:before,
+li.service.share-line span:before {
+	content:" ";
+	background-image:url("images/LINE-shape.png");
+	background-image:image-set(url("images/LINE-shape.png") 1x);
+	background-image:-webkit-image-set(url("images/LINE-shape.png") 1x);
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size:16px 16px;
+	height:16px;
+	width:16px;
+}
+
+/* Text only */
+.sd-social-icon .sd-content ul li.share-line a.no-text:before {
+	background:none !important;
+}
+
+/* Icon only */
+.sd-social-icon .sd-content ul li[class*="share-"].share-line a.sd-button {
+	background-color:#87c040;
+	background-image:url("images/LINE-circle.png");
+	background-image:image-set(url("images/LINE-circle.png") 1x);
+	background-image:-webkit-image-set(url("images/LINE-circle.png") 1x);
+	background-repeat:no-repeat;
+	background-position:2.3px 2px;
+}
+
+/* Official Button (Admin Preview) */
+.preview-line .option-smart-on {
+	height:20px;
+	width: 78px;
+	background-image: url("http://media.line.me/img/button/en/78x20.png");
+	background-image:image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
+	background-image:-webkit-image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
+	background-size: 78px, 20px;
+}
+
+/* Official Button */
 .sd-social-official .sd-content li.share-line .line_button {
 	line-height:20px;
 }
