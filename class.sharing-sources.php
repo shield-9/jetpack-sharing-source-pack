@@ -157,7 +157,7 @@ class Share_LINE extends Sharing_Source {
 				'http://media.line.me/img/button/en/78x20.png', // LINE it!
 				78
 			),
-			'ja_JP' => array(
+			'ja' => array(
 				'http://media.line.me/img/button/ja/82x20.png', // LINEで送る
 				82
 			),
