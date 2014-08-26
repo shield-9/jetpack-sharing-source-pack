@@ -154,16 +154,16 @@ class Share_LINE extends Sharing_Source {
 		$locale = $this->guess_locale_from_lang( get_locale() );
 		$image = array(
 			'en' => array(
-				'http://media.line.me/img/button/en/78x20.png', // LINE it!
-				78
+				'url'   => 'http://media.line.me/img/button/en/78x20.png', // LINE it!
+				'width' => 78
 			),
 			'ja' => array(
-				'http://media.line.me/img/button/ja/82x20.png', // LINEで送る
-				82
+				'url'   => 'http://media.line.me/img/button/ja/82x20.png', // LINEで送る
+				'width' => 82
 			),
 			'zh-hant' => array(
-				'http://media.line.me/img/button/zh-hant/84x20.png', // 用LINE傳送
-				84
+				'url'   => 'http://media.line.me/img/button/zh-hant/84x20.png', // 用LINE傳送
+				'width' => 84
 			),
 		);
 
@@ -172,8 +172,8 @@ class Share_LINE extends Sharing_Source {
 				'<div class="line_button"><a href="http://line.me/R/msg/text/?%1$s%0D%0A%2$s"><img src="%3$d" style="width: %4$dpx; height: 20px;" alt="%5$s" /></a></div>',
 				rawurlencode( $this->get_share_title( $post->ID ) ),
 				rawurlencode( $this->get_share_url( $post->ID ) ),
-				$image[$locale][0],
-				$image[$locale][1],
+				$image[$locale]['url'],
+				$image[$locale]['width'],
 				__( 'LINE it!', 'jpssp' )
 			);
 		else
