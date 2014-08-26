@@ -26,7 +26,11 @@ li.service.share-feedly span:before {
 
 /* Icon only */
 .sd-social-icon .sd-content ul li[class*="share-"].share-feedly a.sd-button {
+/*
 	background-color:#87c040;
+	background-color:#2bb24c;
+*/
+	background-color:#6cc655;
 	background-image:url("images/feedly-follow-circle.png");
 	background-image:image-set(url("images/feedly-follow-circle.png") 1x, url("images/feedly-follow-circle@2x.png") 2x);
 	background-image:-webkit-image-set(url("images/feedly-follow-circle.png") 1x, url("images/feedly-follow-circle@2x.png") 2x);
@@ -141,8 +145,8 @@ li.service.share-feedly span:before {
 li.service.share-line span:before {
 	content:" ";
 	background-image:url("images/LINE-shape.png");
-	background-image:image-set(url("images/LINE-shape.png") 1x);
-	background-image:-webkit-image-set(url("images/LINE-shape.png") 1x);
+	background-image:image-set(url("images/LINE-shape.png") 1x, url("images/LINE-shape@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/LINE-shape.png") 1x, url("images/LINE-shape@2x.png") 2x);
 	background-repeat: no-repeat;
 	background-position:center;
 	background-size:28px 28px;
@@ -157,10 +161,10 @@ li.service.share-line span:before {
 
 /* Icon only */
 .sd-social-icon .sd-content ul li[class*="share-"].share-line a.sd-button {
-	background-color:#1ec221;
-	background-image:url("images/LINE-circle.png");
-	background-image:image-set(url("images/LINE-circle.png") 1x);
-	background-image:-webkit-image-set(url("images/LINE-circle.png") 1x);
+	background-color:#00b900;
+	background-image:url("images/LINE-shape-white.png");
+	background-image:image-set(url("images/LINE-shape-white.png") 1x, url("images/LINE-shape-white@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/LINE-shape-white.png") 1x, url("images/LINE-shape-white@2x.png") 2x);
 	background-repeat:no-repeat;
 	background-position:-4px -4px;
 	background-size:40px 40px;
@@ -170,9 +174,9 @@ li.service.share-line span:before {
 .preview-line .option-smart-on {
 	height:20px;
 	width: 78px;
-	background-image: url("http://media.line.me/img/button/en/78x20.png");
-	background-image:image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
-	background-image:-webkit-image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
+	background-image: url("images/LINE-rectangle-en.png");
+	background-image:image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
 	background-size: 78px, 20px;
 }
 
@@ -188,25 +192,25 @@ li.service.share-line span:before {
 
 .sd-social-official .sd-content li.share-line .line_button a.en {
 	width: 78px;
-	background-image: url("http://media.line.me/img/button/en/78x20.png");
-	background-image:image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
-	background-image:-webkit-image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
+	background-image: url("images/LINE-rectangle-en.png");
+	background-image:image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
 	background-size: 78px, 20px;
 }
 
 .sd-social-official .sd-content li.share-line .line_button a.ja {
 	width: 82px;
-	background-image: url("http://media.line.me/img/button/ja/82x20.png");
-	background-image:image-set(url("http://media.line.me/img/button/ja/82x20.png") 2x);
-	background-image:-webkit-image-set(url("http://media.line.me/img/button/ja/82x20.png") 2x);
+	background-image: url("images/LINE-rectangle-ja.png");
+	background-image:image-set(url("images/LINE-rectangle-ja.png") 1x, url("images/LINE-rectangle-ja@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/LINE-rectangle-ja.png") 1x, url("images/LINE-rectangle-ja@2x.png") 2x);
 	background-size: 82px, 20px;
 }
 
 .sd-social-official .sd-content li.share-line .line_button a.zh-hant {
 	width: 84px;
-	background-image: url("http://media.line.me/img/button/zh-hant/84x20.png");
-	background-image:image-set(url("http://media.line.me/img/button/zh-hant/84x20.png") 2x);
-	background-image:-webkit-image-set(url("http://media.line.me/img/button/zh-hant/84x20.png") 2x);
+	background-image: url("images/LINE-rectangle-zh-hant.png");
+	background-image:image-set(url("images/LINE-rectangle-zh-hant.png") 1x, url("images/LINE-rectangle-zh-hant@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/LINE-rectangle-zh-hant.png") 1x, url("images/LINE-rectangle-zh-hant@2x.png") 2x);
 	background-size: 84px, 20px;
 }
 
