@@ -234,3 +234,68 @@ class Share_Delicious extends Sharing_Source {
 		die();
 	}
 }
+
+class Share_Instapaper extends Sharing_Source {
+	var $shortname = 'instapaper';
+
+	function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if ( 'official' == $this->button_style )
+			$this->smart = true;
+		else
+			$this->smart = false;
+	}
+
+	function get_name() {
+		return __( 'Instapaper', 'jpssp' );
+	}
+
+	function has_custom_button_style() {
+		return $this->smart;
+	}
+
+	function get_display( $post ) {
+		if ( $this->smart )
+			return sprintf(
+				'<div class="instapeper_button"><iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="https://www.instapaper.com/e2?url=%1$s&title=%2$s&description=%3$s"></iframe></div>',
+				rawurlencode( $this->get_share_url( $post->ID ) ),
+				rawurlencode( $this->get_share_title( $post->ID ) ),
+				rawurlencode( $url_excerpt )
+			);
+		else
+			return $this->get_link( get_permalink( $post->ID ), _x( 'Instapaper', 'share to', 'jpssp' ), __( 'Save this for later with Instapaper', 'jpssp' ), 'share=instapaper' );
+	}
+
+	function display_header() {
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+	}
+
+	function display_footer() {
+		$this->js_dialog( $this->shortname );
+	}
+
+	function process_request( $post, array $post_data ) {
+		$url_excerpt = $post->post_excerpt;
+		if ( empty( $url_excerpt ) )
+			$url_excerpt = $post->post_content;
+
+		$url_excerpt = strip_tags( strip_shortcodes( $url_excerpt ) );
+		$url_excerpt = wp_html_excerpt( $url_excerpt, 100 );
+		$url_excerpt = rtrim( preg_replace( '/[^ .]*$/', '', $url_excerpt ) );
+
+		$instapaper_url = sprintf(
+			'https://www.instapaper.com/hello2?url=%1$s&title=%2$s&description=%3$s',
+			rawurlencode( $this->get_share_url( $post->ID ) ),
+			rawurlencode( $this->get_share_title( $post->ID ) ),
+			rawurlencode( $url_excerpt )
+		);
+
+		// Record stats
+		parent::process_request( $post, $post_data );
+
+		// Redirect to Instapaper
+		wp_redirect( $instapaper_url );
+		die();
+	}
+}
