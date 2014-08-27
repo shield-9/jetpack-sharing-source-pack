@@ -268,3 +268,71 @@ li.service.share-delicious span:before {
 	background-size: 78px, 20px;
 }
 */
+
+/**
+* 1.4 Instapaper
+*/
+
+/* Icon and Text */
+.sd-social-icon .sd-content ul li.share-instapaper a:before,
+.sd-social-text .sd-content ul li.share-instapaper a:before,
+.sd-content ul li.share-instapaper div.option.option-smart-off a:before,
+.sd-social-icon-text .sd-content li.share-instapaper a:before,
+li.service.share-instapaper span:before {
+	content:" ";
+	background-image:url("images/Instapaper-logo.png");
+	background-image:image-set(url("images/Instapaper-logo.png") 1x, url("images/Instapaper-logo@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Instapaper-logo.png") 1x, url("images/Instapaper-logo@2x.png") 2x);
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size:16px 16px;
+	height:16px;
+	width:16px;
+}
+
+/* Text only */
+.sd-social-icon .sd-content ul li.share-instapaper a.no-text:before {
+	background:none !important;
+}
+
+/* Icon only */
+.sd-social-icon .sd-content ul li[class*="share-"].share-instapaper a.sd-button {
+	background-color:#fcfcfc;
+	background-image:url("images/Instapaper-I.png");
+	background-image:image-set(url("images/Instapaper-I.png") 1x, url("images/Instapaper-I@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Instapaper-I.png") 1x, url("images/Instapaper-I@2x.png") 2x);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:20px 20px;
+}
+
+/* Official Button (Admin Preview) */
+.preview-instapaper .option-smart-on {
+	height:20px;
+	width: 94px;
+	background-image: url("images/Instapaper-rectangle-sample.png");
+	background-image:image-set(url("images/Instapaper-rectangle-sample.png") 1x, url("images/Instapaper-rectangle-sample@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Instapaper-rectangle-sample.png") 1x, url("images/Instapaper-rectangle-sample@2x.png") 2x);
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 94px, 20px;
+}
+
+/* Official Button */
+/*.sd-social-official .sd-content li.share-instapaper .instapaper_button {
+	line-height:20px;
+}
+
+.sd-social-official .sd-content li.share-instapaper .instapaper_button a {
+	width: 78px;
+	height: 20px;
+	display: inline-block;
+	background-image: url("images/Instapaper-rectangle.png");
+	background-image:image-set(url("images/Instapaper-rectangle.png") 1x, url("images/Instapaper-rectangle@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Instapaper-rectangle.png") 1x, url("images/Instapaper-rectangle@2x.png") 2x);
+	background-size: 78px, 20px;
+	background-repeat: no-repeat;
+	background-position:center;
+}
+*/
+
