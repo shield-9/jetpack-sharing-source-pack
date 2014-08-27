@@ -42,6 +42,9 @@ class JPSSP_Sharing_Service {
 		if(!array_key_exists('delicious', $services)) {
 			$services['delicious'] = 'Share_Delicious';
 		}
+		if(!array_key_exists('instapaper', $services)) {
+			$services['instapaper'] = 'Share_Instapaper';
+		}
 		
 		return $services;
 	}
