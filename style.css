@@ -303,7 +303,7 @@ li.service.share-instapaper span:before {
 	background-image:-webkit-image-set(url("images/Instapaper-I.png") 1x, url("images/Instapaper-I@2x.png") 2x);
 	background-repeat:no-repeat;
 	background-position:center;
-	background-size:20px 20px;
+	background-size:8px 16px;
 }
 
 /* Official Button (Admin Preview) */
