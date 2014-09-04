@@ -346,6 +346,9 @@ class Share_Hatena extends Sharing_Source {
 	}
 
 	function display_footer() {
+	?>
+		<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+	<?php
 		$this->js_dialog( $this->shortname );
 	}
 
