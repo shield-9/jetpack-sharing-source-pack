@@ -298,3 +298,68 @@ class Share_Instapaper extends Sharing_Source {
 		return $url_excerpt;
 	}
 }
+
+class Share_Hatena extends Sharing_Source {
+	var $shortname = 'hatena';
+
+	function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if ( 'official' == $this->button_style )
+			$this->smart = true;
+		else
+			$this->smart = false;
+	}
+
+	function get_name() {
+		return __( 'Hatena', 'jpssp' );
+	}
+
+	function has_custom_button_style() {
+		return $this->smart;
+	}
+
+	private function guess_locale_from_lang( $lang ) {
+		if(strpos($lang, 'ja') === 0)
+			return 'ja';
+
+		return 'en';
+	}
+
+	function get_display( $post ) {
+		$locale = $this->guess_locale_from_lang( get_locale() );
+
+		if ( $this->smart )
+			return sprintf(
+				'<div class="hatena_button"><a href="http://b.hatena.ne.jp/entry/%1$s" class="hatena-bookmark-button" data-hatena-bookmark-title="%2$s" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="%3$s" title="%4$s"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="%3$s" width="20" height="20" style="border: none;" /></a></div>',
+				$this->get_share_url( $post->ID ),
+				esc_attr( $this->get_share_title( $post->ID ) ),
+				esc_attr( $locale ),
+				esc_attr__( 'Add this entry to Hatena Bookmark', 'jpssp' )
+			);
+		else
+			return $this->get_link( get_permalink( $post->ID ), _x( 'Hatena', 'share to', 'jpssp' ), __( 'Add this entry to Hatena Bookmark', 'jpssp' ), 'share=hatena' );
+	}
+
+	function display_header() {
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+	}
+
+	function display_footer() {
+		$this->js_dialog( $this->shortname );
+	}
+
+	function process_request( $post, array $post_data ) {
+		$hatena_url = sprintf(
+			'http://b.hatena.ne.jp/entry/%1$s',
+			$this->get_share_url( $post->ID )
+		);
+
+		// Record stats
+		parent::process_request( $post, $post_data );
+
+		// Redirect to Hatena
+		wp_redirect( $hatena_url );
+		die();
+	}
+}
