@@ -98,8 +98,7 @@ class Share_Feedly extends Sharing_Source {
 		global $post;
 	?>
 		<script>
-			var post_id = <?php echo $post->ID; ?>;
-			var feedly_api = '<?php echo home_url(JPSSP_API::API_ENDPOINT.'/'); ?>';
+			var feedly_api = '<?php echo esc_js(home_url(JPSSP_API::API_ENDPOINT.'/')); ?>';
 			<?php if($this->smart): ?>
 			var feedly_smart = true;
 			<?php else: ?>
