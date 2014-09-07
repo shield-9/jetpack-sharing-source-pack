@@ -91,7 +91,6 @@ class Share_Feedly extends Sharing_Source {
 	}
 
 	function display_header() {
-		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
 	}
 
 	function display_footer() {
@@ -166,7 +165,6 @@ class Share_LINE extends Sharing_Source {
 	}
 
 	function display_header() {
-		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
 	}
 
 	function display_footer() {
@@ -210,7 +208,6 @@ class Share_Delicious extends Sharing_Source {
 	}
 
 	function display_header() {
-		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
 	}
 
 	function display_footer() {
@@ -267,7 +264,6 @@ class Share_Instapaper extends Sharing_Source {
 	}
 
 	function display_header() {
-		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
 	}
 
 	function display_footer() {

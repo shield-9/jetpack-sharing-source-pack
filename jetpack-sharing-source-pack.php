@@ -62,6 +62,7 @@ class Jetpack_Sharing_Source_Pack {
 	}
 
 	function register_assets() {
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
 	}
 
 	function admin_menu_assets($hook) {
