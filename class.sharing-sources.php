@@ -338,7 +338,13 @@ class Share_Hatena extends Sharing_Source {
 				esc_attr__( 'Add this entry to Hatena Bookmark', 'jpssp' )
 			);
 		else
-			return $this->get_link( get_permalink( $post->ID ), _x( 'Hatena', 'share to', 'jpssp' ), __( 'Add this entry to Hatena Bookmark', 'jpssp' ), 'share=hatena' );
+			return $this->get_link(
+				get_permalink( $post->ID ),
+				_x( 'Hatena', 'share to', 'jpssp' ),
+				__( 'Add this entry to Hatena Bookmark', 'jpssp' ),
+				'share=hatena',
+				'sharing-hatena-' . $post->ID
+			);
 	}
 
 	function display_header() {
