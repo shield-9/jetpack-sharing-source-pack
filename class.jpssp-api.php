@@ -74,7 +74,7 @@ class JPSSP_API {
 			}
 
 			if(!empty($_GET['url'])) {
-				$body->{'url'} = esc_js($url);
+				$body->{'url'} = esc_js($_GET['url']);
 			}
 
 			switch($wp_query->query[self::API_ENDPOINT]) {
