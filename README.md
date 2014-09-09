@@ -4,7 +4,7 @@
 * **Tags**: Jetpack, social, sharing, share, SNS, 
 * **Requires at least**: 3.8
 * **Tested up to**: 4.0
-* **Stable tag**: 0.1.1
+* **Stable tag**: 0.1.2
 * **License**: AGPLv3 or later
 * **License URI**: http://www.gnu.org/licenses/agpl.txt
 
@@ -14,6 +14,13 @@
 
 [Jetpack](http://jetpack.me) is awesome! It's used globally. But they can't cover all services. For example, "[mixi](https://mixi.jp)" and "[LINE](http://line.me)".
 This supplies additional Jetpack sharing sources for your website.
+
+Currently, we support the following sources:
+* [feedly](https://feedly.com/) (Since 0.1.0)
+* [LINE](http://line.me) (Since 0.1.2)
+* [Hatena](http://b.hatena.ne.jp/) (Since 0.1.2)
+* [Instapaper](https://www.instapaper.com/) (Since 0.1.2)
+* [Delicious](http://delicious.com/) (Since 0.1.2)
 
 Any suggestion to add new service is welcome! Please let me know from [here](https://www.extendwings.com/contact/en/).
 
@@ -44,6 +51,13 @@ This plugin has no screen.
 
 ## Changelog
 
+### 0.1.2
+* Add New Sharing Source: [LINE](http://line.me)
+* Add New Sharing Source: [Hatena](http://b.hatena.ne.jp/)
+* Add New Sharing Source: [Instapaper](https://www.instapaper.com/)
+* Add New Sharing Source: [Delicious](http://delicious.com/)
+* [`git diff 0.1.1...0.1.2`](https://github.com/shield-9/jetpack-sharing-source-pack/compare/0.1.1...0.1.2)
+
 ### 0.1.1
 * Bundle All Resources
 * [`git diff 0.1.0...0.1.1`](https://github.com/shield-9/jetpack-sharing-source-pack/compare/0.1.0...0.1.1)
@@ -52,6 +66,9 @@ This plugin has no screen.
 * Initial Beta Release
 
 ## Upgrade Notice
+
+### 0.1.2
+* None
 
 ### 0.1.1
 * None
