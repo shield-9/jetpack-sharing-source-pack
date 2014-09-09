@@ -285,7 +285,7 @@ class Share_Instapaper extends Sharing_Source {
 		wp_redirect( $instapaper_url );
 		die();
 	}
-	
+
 	function get_url_excerpt( $post ) {
 		$url_excerpt = $post->post_excerpt;
 		if ( empty( $url_excerpt ) )
