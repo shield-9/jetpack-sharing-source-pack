@@ -69,8 +69,13 @@ class JPSSP_API {
 			header('Content-Type: application/javascript; charset=UTF-8');
 
 			$callback = 'update_feedly_count';
-			if(!empty($_GET['callback']))
+			if(!empty($_GET['callback'])) {
 				$callback = esc_js($_GET['callback']);
+			}
+
+			if(!empty($_GET['url'])) {
+				$body->{'url'} = esc_js($url);
+			}
 
 			switch($wp_query->query[self::API_ENDPOINT]) {
 				case 'smart':
