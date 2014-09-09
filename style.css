@@ -179,7 +179,7 @@ li.service.share-line span:before {
 	background-image:-webkit-image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
 	background-repeat: no-repeat;
 	background-position:center;
-	background-size: 78px, 20px;
+	background-size: 78px 20px;
 }
 
 /* Official Button */
@@ -199,7 +199,7 @@ li.service.share-line span:before {
 	background-image: url("images/LINE-rectangle-en.png");
 	background-image:image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
 	background-image:-webkit-image-set(url("images/LINE-rectangle-en.png") 1x, url("images/LINE-rectangle-en@2x.png") 2x);
-	background-size: 78px, 20px;
+	background-size: 78px 20px;
 }
 
 .sd-social-official .sd-content li.share-line .line_button a.ja {
@@ -207,7 +207,7 @@ li.service.share-line span:before {
 	background-image: url("images/LINE-rectangle-ja.png");
 	background-image:image-set(url("images/LINE-rectangle-ja.png") 1x, url("images/LINE-rectangle-ja@2x.png") 2x);
 	background-image:-webkit-image-set(url("images/LINE-rectangle-ja.png") 1x, url("images/LINE-rectangle-ja@2x.png") 2x);
-	background-size: 82px, 20px;
+	background-size: 82px 20px;
 }
 
 .sd-social-official .sd-content li.share-line .line_button a.zh-hant {
@@ -215,7 +215,7 @@ li.service.share-line span:before {
 	background-image: url("images/LINE-rectangle-zh-hant.png");
 	background-image:image-set(url("images/LINE-rectangle-zh-hant.png") 1x, url("images/LINE-rectangle-zh-hant@2x.png") 2x);
 	background-image:-webkit-image-set(url("images/LINE-rectangle-zh-hant.png") 1x, url("images/LINE-rectangle-zh-hant@2x.png") 2x);
-	background-size: 84px, 20px;
+	background-size: 84px 20px;
 }
 
 /**
@@ -265,7 +265,7 @@ li.service.share-delicious span:before {
 	background-image: url("http://media.line.me/img/button/en/78x20.png");
 	background-image:image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
 	background-image:-webkit-image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
-	background-size: 78px, 20px;
+	background-size: 78px 20px;
 }
 */
 
@@ -315,7 +315,7 @@ li.service.share-instapaper span:before {
 	background-image:-webkit-image-set(url("images/Instapaper-rectangle-sample.png") 1x, url("images/Instapaper-rectangle-sample@2x.png") 2x);
 	background-repeat: no-repeat;
 	background-position:center;
-	background-size: 94px, 20px;
+	background-size: 94px 20px;
 }
 
 /* Official Button */
@@ -330,7 +330,7 @@ li.service.share-instapaper span:before {
 	background-image: url("images/Instapaper-rectangle.png");
 	background-image:image-set(url("images/Instapaper-rectangle.png") 1x, url("images/Instapaper-rectangle@2x.png") 2x);
 	background-image:-webkit-image-set(url("images/Instapaper-rectangle.png") 1x, url("images/Instapaper-rectangle@2x.png") 2x);
-	background-size: 78px, 20px;
+	background-size: 78px 20px;
 	background-repeat: no-repeat;
 	background-position:center;
 }
