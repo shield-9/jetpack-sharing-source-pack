@@ -231,9 +231,9 @@ li.service.share-line span:before {
 .sd-social-official .sd-content li.share-delicious a:before,
 li.service.share-delicious span:before {
 	content:" ";
-	background-image:url("https://delicious.com/img/logo.png");
-	background-image:image-set(url("https://delicious.com/img/logo.png") 1x);
-	background-image:-webkit-image-set(url("https://delicious.com/img/logo.png") 1x);
+	background-image:url("images/Delicious/shape.png");
+	background-image:image-set(url("images/Delicious/shape.png") 1x, url("images/Delicious/shape@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Delicious/shape.png") 1x, url("images/Delicious/shape@2x.png") 2x);
 	background-repeat: no-repeat;
 	background-position:center;
 	background-size:16px 16px;
@@ -249,25 +249,23 @@ li.service.share-delicious span:before {
 /* Icon only */
 .sd-social-icon .sd-content ul li[class*="share-"].share-delicious a.sd-button {
 	background-color:#0b79e5;
-	background-image:url("https://delicious.com/img/logo.png");
-	background-image:image-set(url("https://delicious.com/img/logo.png") 1x);
-	background-image:-webkit-image-set(url("https://delicious.com/img/logo.png") 1x);
+	background-image:url("images/Delicious/shape.png");
+	background-image:image-set(url("images/Delicious/shape.png") 1x, url("images/Delicious/shape@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Delicious/shape.png") 1x, url("images/Delicious/shape@2x.png") 2x);
 	background-repeat:no-repeat;
 	background-position:center;
 	background-size:16px 16px;
 }
 
 /* Official Button (Admin Preview) */
-/* TODO */
-/*.preview-delicious .option-smart-on {
+.preview-delicious .option-smart-on {
 	height:20px;
 	width: 78px;
-	background-image: url("http://media.line.me/img/button/en/78x20.png");
-	background-image:image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
-	background-image:-webkit-image-set(url("http://media.line.me/img/button/en/78x20.png") 2x);
+	background-image:url("images/Delicious/rectangle.png");
+	background-image:image-set(url("images/Delicious/rectangle.png") 1x, url("images/Delicious/rectangle@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Delicious/rectangle.png") 1x, url("images/Delicious/rectangle@2x.png") 2x);
 	background-size: 78px 20px;
 }
-*/
 
 /**
 * 1.4 Instapaper
