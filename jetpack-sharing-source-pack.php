@@ -50,7 +50,7 @@ class Jetpack_Sharing_Source_Pack {
 	}
 
 	private function __construct() {
-		add_action('wp_loaded', array(&$this, 'register_assets'));
+		add_action('wp_enqueue_scripts', array(&$this, 'register_assets'));
 		add_action('admin_enqueue_scripts', array(&$this, 'admin_menu_assets'));
 
 		if(did_action('plugins_loaded')) {
@@ -67,7 +67,7 @@ class Jetpack_Sharing_Source_Pack {
 
 	function admin_menu_assets($hook) {
 		if($hook == 'settings_page_sharing') {
-			wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharing'), JPSSP__VERSION);
+			wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharing', 'sharing-admin'), JPSSP__VERSION);
 		}
 	}
 
