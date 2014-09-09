@@ -13,13 +13,15 @@ jQuery(document).ready(function($) {
 			cache: true
 		});
 
+		var request_url = feedly_api;
+
 		if(feedly_smart) {
-			feedly_api += 'smart/';
+			request_url += 'smart/';
 		}
 		
-		feedly_api += '?url=' + encodeURI(url);
+		request_url += '?url=' + encodeURI(url);
 
-		$.getScript(feedly_api);
+		$.getScript(request_url);
 	}
 
 });
