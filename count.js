@@ -1,46 +1,44 @@
 jQuery(document).ready(function($) {
-	// Feedly
-	if (!feedly_smart && 'undefined' != typeof WPCOM_sharing_counts) {
-		for (var url in WPCOM_sharing_counts) {
+	if ('undefined' != typeof WPCOM_sharing_counts) {
+		// Feedly
+		if(!feedly_smart ) {
+			for (var url in WPCOM_sharing_counts) {
+				get_feedly_count(url);
+			}
+		} else {
 			get_feedly_count(url);
 		}
-	} else if(feedly_smart) {
-		get_feedly_count(url);
+
+		// Hatena
+		for (var url in WPCOM_sharing_counts) {
+			get_hatena_count(url);
+		}
 	}
 
 	function get_feedly_count(url) {
-		$.ajaxSetup({
-			cache: true
-		});
-
 		var request_url = feedly_api;
 
 		if(feedly_smart) {
 			request_url += 'smart/';
 		}
 		
-		request_url += '?callback=JPSSP_Sharing.update_feedly_count&url=' + encodeURI(url);
+		request_url += '?url=' + encodeURI(url) + '&callback=JPSSP_Sharing.update_feedly_count';
 
-		$.getScript(request_url);
-	}
-
-	// Hatena
-	if ('undefined' != typeof WPCOM_sharing_counts) {
-		for (var url in WPCOM_sharing_counts) {
-			get_hatena_count(url);
-		}
-	} else if(feedly_smart) {
-		get_hatena_count(url);
+		get_script(request_url);
 	}
 
 	function get_hatena_count(url) {
+		var request_url = 'http://api.b.st-hatena.com/entry.counts?url='+encodeURIComponent(url)+'&callback=JPSSP_Sharing.update_hatena_count';
+
+		get_script(request_url);
+	}
+	
+	function get_script(url) {
 		$.ajaxSetup({
 			cache: true
 		});
 
-		var request_url = 'http://api.b.st-hatena.com/entry.counts?url='+encodeURIComponent(url)+'&callback=JPSSP_Sharing.update_hatena_count';
-
-		$.getScript(request_url);
+		$.getScript(url);
 	}
 });
 
