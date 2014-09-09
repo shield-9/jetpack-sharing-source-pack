@@ -336,3 +336,51 @@ li.service.share-instapaper span:before {
 }
 */
 
+/**
+* 1.5 Hatena
+*/
+
+/* Icon and Text */
+.sd-social-icon .sd-content ul li.share-hatena a:before,
+.sd-social-text .sd-content ul li.share-hatena a:before,
+.sd-content ul li.share-hatena div.option.option-smart-off a:before,
+.sd-social-icon-text .sd-content li.share-hatena a:before,
+li.service.share-hatena span:before {
+	content:" ";
+	background-image:url("images/Hatena-shape.png");
+	background-image:image-set(url("images/Hatena-shape.png") 1x, url("images/Hatena-shape@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Hatena-shape.png") 1x, url("images/Hatena-shape@2x.png") 2x);
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size:16px 13.3px;
+	height:16px;
+	width:16px;
+}
+
+/* Text only */
+.sd-social-icon .sd-content ul li.share-hatena a.no-text:before {
+	background:none !important;
+}
+
+/* Icon only */
+.sd-social-icon .sd-content ul li[class*="share-"].share-hatena a.sd-button {
+	background-color:#0071c5;
+	background-image:url("images/Hatena-shape-white.png");
+	background-image:image-set(url("images/Hatena-shape-white.png") 1x, url("images/Hatena-shape-white@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Hatena-shape-white.png") 1x, url("images/Hatena-shape-white@2x.png") 2x);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:16px 13.3px;
+}
+
+/* Official Button (Admin Preview) */
+.preview-hatena .option-smart-on {
+	height:20px;
+	width: 106px;
+	background-image: url("images/Hatena-rectangle-sample.png");
+	background-image:image-set(url("images/Hatena-rectangle-sample.png") 1x, url("images/Hatena-rectangle-sample@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Hatena-rectangle-sample.png") 1x, url("images/Hatena-rectangle-sample@2x.png") 2x);
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 106px, 20px;
+}
