@@ -352,7 +352,7 @@ li.service.share-hatena span:before {
 	background-image:-webkit-image-set(url("images/Hatena-shape.png") 1x, url("images/Hatena-shape@2x.png") 2x);
 	background-repeat: no-repeat;
 	background-position:center;
-	background-size:16px 16px;
+	background-size:16px 13.3px;
 	height:16px;
 	width:16px;
 }
@@ -370,18 +370,17 @@ li.service.share-hatena span:before {
 	background-image:-webkit-image-set(url("images/Hatena-shape-white.png") 1x, url("images/Hatena-shape-white@2x.png") 2x);
 	background-repeat:no-repeat;
 	background-position:center;
-	background-size:8px 16px;
+	background-size:16px 13.3px;
 }
 
 /* Official Button (Admin Preview) */
-/*.preview-hatena .option-smart-on {
+.preview-hatena .option-smart-on {
 	height:20px;
-	width: 94px;
-	background-image: url("images/Instapaper-rectangle-sample.png");
-	background-image:image-set(url("images/Instapaper-rectangle-sample.png") 1x, url("images/Instapaper-rectangle-sample@2x.png") 2x);
-	background-image:-webkit-image-set(url("images/Instapaper-rectangle-sample.png") 1x, url("images/Instapaper-rectangle-sample@2x.png") 2x);
+	width: 106px;
+	background-image: url("images/Hatena-rectangle-sample.png");
+	background-image:image-set(url("images/Hatena-rectangle-sample.png") 1x, url("images/Hatena-rectangle-sample@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/Hatena-rectangle-sample.png") 1x, url("images/Hatena-rectangle-sample@2x.png") 2x);
 	background-repeat: no-repeat;
 	background-position:center;
-	background-size: 94px, 20px;
+	background-size: 106px, 20px;
 }
-*/
