@@ -73,7 +73,7 @@ class Jetpack_Sharing_Source_Pack {
 
 	function require_services() {
 		if(class_exists('Jetpack')) {
-			require JPSSP__PLUGIN_DIR . 'class.sharing-services.php';
+			require_once(JPSSP__PLUGIN_DIR . 'class.sharing-services.php');
 		}
 	}
 
