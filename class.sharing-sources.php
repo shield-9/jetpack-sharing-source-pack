@@ -257,7 +257,7 @@ class Share_Instapaper extends Sharing_Source {
 				'<div class="instapeper_button"><iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="https://www.instapaper.com/e2?url=%1$s&title=%2$s&description=%3$s"></iframe></div>',
 				rawurlencode( $this->get_share_url( $post->ID ) ),
 				rawurlencode( $this->get_share_title( $post->ID ) ),
-				rawurlencode( get_url_excerpt($post) )
+				rawurlencode( $this->get_url_excerpt($post) )
 			);
 		else
 			return $this->get_link( get_permalink( $post->ID ), _x( 'Instapaper', 'share to', 'jpssp' ), __( 'Save this for later with Instapaper', 'jpssp' ), 'share=instapaper' );
@@ -275,7 +275,7 @@ class Share_Instapaper extends Sharing_Source {
 			'https://www.instapaper.com/hello2?url=%1$s&title=%2$s&description=%3$s',
 			rawurlencode( $this->get_share_url( $post->ID ) ),
 			rawurlencode( $this->get_share_title( $post->ID ) ),
-			rawurlencode( get_url_excerpt($post) )
+			rawurlencode( $this->get_url_excerpt($post) )
 		);
 
 		// Record stats
