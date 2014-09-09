@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 			feedly_api += 'smart/';
 		}
 		
-		feedly_api += encodeURI(url);
+		feedly_api += '?url=' + encodeURI(url);
 
 		$.getScript(feedly_api);
 	}
