@@ -9,9 +9,9 @@
 .sd-social-icon-text .sd-content li.share-feedly a:before,
 li.service.share-feedly span:before {
 	content:" ";
-	background-image:url("images/feedly/follow-feedlyshape.png");
-	background-image:image-set(url("images/feedly/follow-feedlyshape.png") 1x, url("images/feedly/follow-feedlyshape@2x.png") 2x);
-	background-image:-webkit-image-set(url("images/feedly/follow-feedlyshape.png") 1x, url("images/feedly/follow-feedlyshape@2x.png") 2x);
+	background-image:url("images/feedly/shape.png");
+	background-image:image-set(url("images/feedly/shape.png") 1x, url("images/feedly/shape@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/feedly/shape.png") 1x, url("images/feedly/shape@2x.png") 2x);
 	background-repeat: no-repeat;
 	background-position:center;
 	background-size:16px 14.2px;
@@ -31,18 +31,18 @@ li.service.share-feedly span:before {
 	background-color:#2bb24c;
 */
 	background-color:#6cc655;
-	background-image:url("images/feedly/follow-circle.png");
-	background-image:image-set(url("images/feedly/follow-circle.png") 1x, url("images/feedly/follow-circle@2x.png") 2x);
-	background-image:-webkit-image-set(url("images/feedly/follow-circle.png") 1x, url("images/feedly/follow-circle@2x.png") 2x);
+	background-image:url("images/feedly/circle.png");
+	background-image:image-set(url("images/feedly/circle.png") 1x, url("images/feedly/circle@2x.png") 2x);
+	background-image:-webkit-image-set(url("images/feedly/circle.png") 1x, url("images/feedly/circle@2x.png") 2x);
 	background-repeat:no-repeat;
 	background-position:2.3px 2px;
 }
 
 /* Official Button (Admin Preview) */
 .preview-feedly .option-smart-on {
-	background-image:url("images/feedly/follow-rectangle-sample.png");
-	background-image:-webkit-image-set(url("images/feedly/follow-rectangle-sample.png") 1x, url("images/feedly/follow-rectangle-sample@2x.png") 2x);
-	background-image:image-set(url("images/feedly/follow-rectangle-sample.png") 1x, url("images/feedly/follow-rectangle-sample@2x.png") 2x);
+	background-image:url("images/feedly/rectangle-sample.png");
+	background-image:-webkit-image-set(url("images/feedly/rectangle-sample.png") 1x, url("images/feedly/rectangle-sample@2x.png") 2x);
+	background-image:image-set(url("images/feedly/rectangle-sample.png") 1x, url("images/feedly/rectangle-sample@2x.png") 2x);
 	background-repeat:no-repeat;
 	background-attachment:scroll;
 	background-position:left top;
@@ -78,9 +78,9 @@ li.service.share-feedly span:before {
 }
 
 .sd-social-official .sd-content li.share-feedly .feedly_button [data-scribe="component:button"] i {
-	background-image:url("images/feedly/follow-rectangle.png");
-	background-image:-webkit-image-set(url("images/feedly/follow-rectangle.png") 1x, url("images/feedly/follow-rectangle@2x.png") 2x);
-	background-image:image-set(url("images/feedly/follow-rectangle.png") 1x, url("images/feedly/follow-rectangle@2x.png") 2x);
+	background-image:url("images/feedly/rectangle.png");
+	background-image:-webkit-image-set(url("images/feedly/rectangle.png") 1x, url("images/feedly/rectangle@2x.png") 2x);
+	background-image:image-set(url("images/feedly/rectangle.png") 1x, url("images/feedly/rectangle@2x.png") 2x);
 }
 
 .sd-social-official .sd-content li.share-feedly .feedly_button .count-wrap,
