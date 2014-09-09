@@ -257,7 +257,7 @@ class Share_Instapaper extends Sharing_Source {
 				'<div class="instapeper_button"><iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="https://www.instapaper.com/e2?url=%1$s&title=%2$s&description=%3$s"></iframe></div>',
 				rawurlencode( $this->get_share_url( $post->ID ) ),
 				rawurlencode( $this->get_share_title( $post->ID ) ),
-				rawurlencode( $url_excerpt )
+				rawurlencode( get_url_excerpt($post) )
 			);
 		else
 			return $this->get_link( get_permalink( $post->ID ), _x( 'Instapaper', 'share to', 'jpssp' ), __( 'Save this for later with Instapaper', 'jpssp' ), 'share=instapaper' );
@@ -271,19 +271,11 @@ class Share_Instapaper extends Sharing_Source {
 	}
 
 	function process_request( $post, array $post_data ) {
-		$url_excerpt = $post->post_excerpt;
-		if ( empty( $url_excerpt ) )
-			$url_excerpt = $post->post_content;
-
-		$url_excerpt = strip_tags( strip_shortcodes( $url_excerpt ) );
-		$url_excerpt = wp_html_excerpt( $url_excerpt, 100 );
-		$url_excerpt = rtrim( preg_replace( '/[^ .]*$/', '', $url_excerpt ) );
-
 		$instapaper_url = sprintf(
 			'https://www.instapaper.com/hello2?url=%1$s&title=%2$s&description=%3$s',
 			rawurlencode( $this->get_share_url( $post->ID ) ),
 			rawurlencode( $this->get_share_title( $post->ID ) ),
-			rawurlencode( $url_excerpt )
+			rawurlencode( get_url_excerpt($post) )
 		);
 
 		// Record stats
@@ -292,5 +284,17 @@ class Share_Instapaper extends Sharing_Source {
 		// Redirect to Instapaper
 		wp_redirect( $instapaper_url );
 		die();
+	}
+	
+	function get_url_excerpt( $post ) {
+		$url_excerpt = $post->post_excerpt;
+		if ( empty( $url_excerpt ) )
+			$url_excerpt = $post->post_content;
+
+		$url_excerpt = strip_tags( strip_shortcodes( $url_excerpt ) );
+		$url_excerpt = wp_html_excerpt( $url_excerpt, 100 );
+		$url_excerpt = rtrim( preg_replace( '/[^ .]*$/', '', $url_excerpt ) );
+		
+		return $url_excerpt;
 	}
 }
