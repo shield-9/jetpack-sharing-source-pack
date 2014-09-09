@@ -316,24 +316,6 @@ li.service.share-instapaper span:before {
 	background-size: 94px 20px;
 }
 
-/* Official Button */
-/*.sd-social-official .sd-content li.share-instapaper .instapaper_button {
-	line-height:20px;
-}
-
-.sd-social-official .sd-content li.share-instapaper .instapaper_button a {
-	width: 78px;
-	height: 20px;
-	display: inline-block;
-	background-image: url("images/Instapaper/rectangle.png");
-	background-image:image-set(url("images/Instapaper/rectangle.png") 1x, url("images/Instapaper/rectangle@2x.png") 2x);
-	background-image:-webkit-image-set(url("images/Instapaper/rectangle.png") 1x, url("images/Instapaper/rectangle@2x.png") 2x);
-	background-size: 78px 20px;
-	background-repeat: no-repeat;
-	background-position:center;
-}
-*/
-
 /**
 * 1.5 Hatena
 */
