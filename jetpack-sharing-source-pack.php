@@ -62,7 +62,15 @@ class Jetpack_Sharing_Source_Pack {
 	}
 
 	function register_assets() {
-		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+		if ( get_option( 'sharedaddy_disable_resources' ) ) {
+			return;
+		}
+
+		if(!Jetpack::is_module_active('sharedaddy')) {
+			return;
+		}
+
+		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array(), JPSSP__VERSION);
 	}
 
 	function admin_menu_assets($hook) {
