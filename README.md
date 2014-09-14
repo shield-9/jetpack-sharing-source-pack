@@ -4,7 +4,7 @@
 * **Tags**: Jetpack, social, sharing, share, SNS, 
 * **Requires at least**: 3.8
 * **Tested up to**: 4.0
-* **Stable tag**: 0.1.2
+* **Stable tag**: 0.1.3
 * **License**: AGPLv3 or later
 * **License URI**: http://www.gnu.org/licenses/agpl.txt
 
@@ -51,6 +51,11 @@ If you're in supported environment, please create [pull request](https://github.
 This plugin has no screen.
 
 ## Changelog
+
+### 0.1.3
+* Bug Fix: Compatible with [Jetpack](https://wordpress.org/plugins/jetpack/) 3.1.x
+* Bug Fix: Compatible with [Twenty Fourteen](http://wordpress.org/themes/twentyfourteen)
+* [`git diff 0.1.2...0.1.3`](https://github.com/shield-9/jetpack-sharing-source-pack/compare/0.1.2...0.1.3)
 
 ### 0.1.2
 * Add New Sharing Source: [LINE](http://line.me)
