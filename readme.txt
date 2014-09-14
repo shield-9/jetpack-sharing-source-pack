@@ -16,6 +16,7 @@ Add more services to Jetpack Sharing
 This supplies additional Jetpack sharing sources for your website.
 
 Currently, we support the following sources:
+
 * [feedly](https://feedly.com/) (Since 0.1.0)
 * [LINE](http://line.me) (Since 0.1.2)
 * [Hatena](http://b.hatena.ne.jp/) (Since 0.1.2)
