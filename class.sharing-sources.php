@@ -1,6 +1,6 @@
 <?php
 
-if(!function_exists('add_action')) {
+if( !function_exists('add_action') ) {
 	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
 	exit;
 }
@@ -8,10 +8,10 @@ if(!function_exists('add_action')) {
 class Share_Feedly extends Sharing_Source {
 	public $shortname = 'feedly';
 
-	function __construct($id, array $settings) {
+	function __construct( $id, array $settings ) {
 		parent::__construct( $id, $settings );
 
-		if ( 'official' == $this->button_style )
+		if( 'official' == $this->button_style )
 			$this->smart = true;
 		else
 			$this->smart = false;
@@ -19,11 +19,11 @@ class Share_Feedly extends Sharing_Source {
 
 	function get_link_addr( $url, $query = '' ) {
 		$url = apply_filters( 'sharing_display_link', $url );
-		if ( !empty( $query ) ) {
-			if ( stripos( $url, '?' ) === false )
-				$url .= '?'.$query;
+		if( !empty( $query ) ) {
+			if( stripos( $url, '?' ) === false )
+				$url .= '?' . $query;
 			else
-				$url .= '&amp;'.$query;
+				$url .= '&amp;' . $query;
 		}
 
 		return $url;
@@ -37,14 +37,14 @@ class Share_Feedly extends Sharing_Source {
 		return $this->smart;
 	}
 
-	function get_display($post) {
-		if ( apply_filters( 'jetpack_register_post_for_share_counts', true, $post->ID, 'feedly' ) ) {
+	function get_display( $post ) {
+		if( apply_filters( 'jetpack_register_post_for_share_counts', true, $post->ID, 'feedly' ) ) {
 			sharing_register_post_for_share_counts( $post->ID );
 		}
 
-		$feed_id = 'feed/'.get_bloginfo('rss2_url');
+		$feed_id = 'feed/' . get_bloginfo('rss2_url');
 
-		if ( $this->smart ) {
+		if( $this->smart ) {
 			$button = '';
 			$button .= '<div class="feedly_button"><div class="feedly">';
 			$button .= '<table cellpadding="0" cellspacing="0"><tr>';
@@ -53,7 +53,7 @@ class Share_Feedly extends Sharing_Source {
 			$button .= '<div data-scribe="component:button">';
 			$button .= sprintf(
 					'<a rel="nofollow" href="%s" class="share-feedly">%s</a>',
-					esc_url($this->get_link_addr( get_permalink( $post->ID ), 'share=feedly' )),
+					esc_url( $this->get_link_addr( get_permalink( $post->ID ), 'share=feedly' ) ),
 					'<i></i>'
 				);
 			$button .= '</div>';
@@ -97,21 +97,21 @@ class Share_Feedly extends Sharing_Source {
 		global $post;
 	?>
 		<script>
-			var feedly_api = '<?php echo esc_js(home_url(JPSSP_API::API_ENDPOINT.'/')); ?>';
-			<?php if($this->smart): ?>
+			var feedly_api = '<?php echo esc_js( home_url( JPSSP_API::API_ENDPOINT . '/' ) ); ?>';
+			<?php if( $this->smart ): ?>
 			var feedly_smart = true;
 			<?php else: ?>
 			var feedly_smart = false;
 			<?php endif; ?>
 		</script>
 	<?php
-		wp_enqueue_script('jpssp', JPSSP__PLUGIN_URL .'count.js', array('jquery'), JPSSP__VERSION, true);
+		wp_enqueue_script( 'jpssp', JPSSP__PLUGIN_URL . 'count.js', array('jquery'), JPSSP__VERSION, true );
 		$this->js_dialog( $this->shortname, array( 'width' => 1024, 'height' => 576 ) );
 	}
 
 	function process_request( $post, array $post_data ) {
-		$feed_url = get_bloginfo('rss2_url');
-		$feedly_url = $this->http() . '://feedly.com/#' . rawurlencode( 'subscription/'.$feed_url );
+		$feed_url   = get_bloginfo('rss2_url');
+		$feedly_url = $this->http() . '://feedly.com/#' . rawurlencode( 'subscription/' . $feed_url );
 
 		// Redirect to Feedly
 		wp_redirect( $feedly_url );
@@ -125,7 +125,7 @@ class Share_LINE extends Sharing_Source {
 	function __construct( $id, array $settings ) {
 		parent::__construct( $id, $settings );
 
-		if ( 'official' == $this->button_style )
+		if( 'official' == $this->button_style )
 			$this->smart = true;
 		else
 			$this->smart = false;
@@ -140,10 +140,10 @@ class Share_LINE extends Sharing_Source {
 	}
 
 	private function guess_locale_from_lang( $lang ) {
-		if(strpos($lang, 'ja') === 0)
+		if( strpos( $lang, 'ja' ) === 0 )
 			return 'ja';
 
-		if(strpos($lang, 'zh') === 0)
+		if( strpos( $lang, 'zh' ) === 0 )
 			return 'zh-hant';
 
 		return 'en';
@@ -152,12 +152,12 @@ class Share_LINE extends Sharing_Source {
 	function get_display( $post ) {
 		$locale = $this->guess_locale_from_lang( get_locale() );
 
-		if ( $this->smart )
+		if( $this->smart )
 			return sprintf(
 				'<div class="line_button"><a href="http://line.me/R/msg/text/?%1$s%0D%0A%2$s" class="share-line %3$s" title="%4$s"></a></div>',
 				rawurlencode( $this->get_share_title( $post->ID ) ),
 				rawurlencode( $this->get_share_url( $post->ID ) ),
-				esc_attr($locale),
+				esc_attr( $locale ),
 				esc_attr__( 'LINE it!', 'jpssp' )
 			);
 		else
@@ -237,7 +237,7 @@ class Share_Instapaper extends Sharing_Source {
 	function __construct( $id, array $settings ) {
 		parent::__construct( $id, $settings );
 
-		if ( 'official' == $this->button_style )
+		if( 'official' == $this->button_style )
 			$this->smart = true;
 		else
 			$this->smart = false;
@@ -252,7 +252,7 @@ class Share_Instapaper extends Sharing_Source {
 	}
 
 	function get_display( $post ) {
-		if ( $this->smart )
+		if( $this->smart )
 			return sprintf(
 				'<div class="instapeper_button"><iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="https://www.instapaper.com/e2?url=%1$s&title=%2$s&description=%3$s"></iframe></div>',
 				rawurlencode( $this->get_share_url( $post->ID ) ),
@@ -288,7 +288,7 @@ class Share_Instapaper extends Sharing_Source {
 
 	function get_url_excerpt( $post ) {
 		$url_excerpt = $post->post_excerpt;
-		if ( empty( $url_excerpt ) )
+		if( empty( $url_excerpt ) )
 			$url_excerpt = $post->post_content;
 
 		$url_excerpt = strip_tags( strip_shortcodes( $url_excerpt ) );
@@ -305,7 +305,7 @@ class Share_Hatena extends Sharing_Source {
 	function __construct( $id, array $settings ) {
 		parent::__construct( $id, $settings );
 
-		if ( 'official' == $this->button_style )
+		if( 'official' == $this->button_style )
 			$this->smart = true;
 		else
 			$this->smart = false;
@@ -320,7 +320,7 @@ class Share_Hatena extends Sharing_Source {
 	}
 
 	private function guess_locale_from_lang( $lang ) {
-		if(strpos($lang, 'ja') === 0)
+		if( strpos( $lang, 'ja' ) === 0 )
 			return 'ja';
 
 		return 'en';
@@ -336,7 +336,7 @@ class Share_Hatena extends Sharing_Source {
 	function get_display( $post ) {
 		$locale = $this->guess_locale_from_lang( get_locale() );
 
-		if ( $this->smart )
+		if( $this->smart )
 			return sprintf(
 				'<div class="hatena_button">
 					<a href="http://b.hatena.ne.jp/entry/%1$s" class="hatena-bookmark-button" data-hatena-bookmark-title="%2$s" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="%3$s" title="%4$s">
@@ -360,7 +360,7 @@ class Share_Hatena extends Sharing_Source {
 	}
 
 	function display_header() {
-		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharedaddy'), JPSSP__VERSION);
+		wp_enqueue_style( 'jpssp', JPSSP__PLUGIN_URL . 'style.css', array('sharedaddy'), JPSSP__VERSION );
 	}
 
 	function display_footer() {
