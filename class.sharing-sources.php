@@ -326,16 +326,28 @@ class Share_Hatena extends Sharing_Source {
 		return 'en';
 	}
 
+	private function get_resource_host() {
+		if( is_ssl() )
+			return 'https://b.hatena.ne.jp';
+
+		return 'http://b.st-hatena.com';
+	}
+
 	function get_display( $post ) {
 		$locale = $this->guess_locale_from_lang( get_locale() );
 
 		if ( $this->smart )
 			return sprintf(
-				'<div class="hatena_button"><a href="http://b.hatena.ne.jp/entry/%1$s" class="hatena-bookmark-button" data-hatena-bookmark-title="%2$s" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="%3$s" title="%4$s"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="%3$s" width="20" height="20" style="border: none;" /></a></div>',
+				'<div class="hatena_button">
+					<a href="http://b.hatena.ne.jp/entry/%1$s" class="hatena-bookmark-button" data-hatena-bookmark-title="%2$s" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="%3$s" title="%4$s">
+						<img src="%5$s" alt="%3$s" width="20" height="20" style="border: none;" />
+					</a>
+				</div>',
 				$this->get_share_url( $post->ID ),
 				esc_attr( $this->get_share_title( $post->ID ) ),
 				esc_attr( $locale ),
-				esc_attr__( 'Add this entry to Hatena Bookmark', 'jpssp' )
+				esc_attr__( 'Add this entry to Hatena Bookmark', 'jpssp' ),
+				esc_url( $this->get_resource_host() . '/images/entry-button/button-only@2x.png' )
 			);
 		else
 			return $this->get_link(
@@ -353,7 +365,7 @@ class Share_Hatena extends Sharing_Source {
 
 	function display_footer() {
 	?>
-		<script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+		<script type="text/javascript" src="<?php echo $this->get_resource_host(); ?>/js/bookmark_button.js" charset="utf-8" async="async"></script>
 	<?php
 		$this->js_dialog( $this->shortname );
 	}
