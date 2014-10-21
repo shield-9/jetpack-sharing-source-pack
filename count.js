@@ -16,9 +16,6 @@ jQuery(document).ready(function($) {
 	function get_feedly_count( url ) {
 		var request_url = feedly_api;
 
-		if( request_url.split('//')[0] != document.location.protocol )
-			request_url.replace( request_url.split('//')[0], document.location.protocol );
-
 		if('undefined' != typeof feedly_smart && feedly_smart )
 			request_url += 'smart/';
 		
