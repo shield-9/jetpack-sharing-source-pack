@@ -24,7 +24,7 @@ class JPSSP_API {
 	}
 
 	function force_ssl( $force_ssl, $post_id = 0, $url = '' ) {
-		if( $url != set_url_scheme( $url ) ) {
+		if( $url == set_url_scheme( $url, 'https' ) ) {
 			$force_ssl = true;
 		}
 		return $force_ssl;
