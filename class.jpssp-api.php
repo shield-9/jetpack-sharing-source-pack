@@ -16,10 +16,18 @@ class JPSSP_API {
 	}
 
 	function __construct() {
+		add_filter( 'force_ssl',         array( &$this, 'force_ssl' ),     10, 3 );
 		add_action( 'init',              array( &$this, 'add_rewrite_endpoint' ) );
 		add_action( 'delete_option',     array( $this,  'delete_option' ), 10, 1 );
 		add_filter( 'query_vars',        array( $this,  'query_vars' ) );
 		add_action( 'template_redirect', array( $this,  'template_redirect' ) );
+	}
+
+	function force_ssl( $force_ssl, $post_id = 0, $url = '' ) {
+		if( $url != set_url_scheme( $url ) ) {
+			$force_ssl = true;
+		}
+		return $force_ssl;
 	}
 
 	static function activation(){
