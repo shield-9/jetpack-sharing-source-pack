@@ -11,24 +11,24 @@
  * Domain Path: /languages/
 */
 
-if(!function_exists('add_action')) {
+if( !function_exists('add_action') ) {
 	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
 	exit;
 }
 
-if(version_compare(get_bloginfo('version'), '3.8', '<')) {
-	require_once(ABSPATH.'wp-admin/includes/plugin.php');
-	deactivate_plugins(__FILE__);
+if( version_compare( get_bloginfo('version'), '3.8', '<' ) ) {
+	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	deactivate_plugins( __FILE__ );
 }
 
-define('JPSSP__PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('JPSSP__PLUGIN_URL', plugin_dir_url(__FILE__));
-define('JPSSP__PLUGIN_FILE', __FILE__);
-define('JPSSP__VERSION' , '0.1.3');
+define( 'JPSSP__PLUGIN_DIR',  plugin_dir_path( __FILE__ ) );
+define( 'JPSSP__PLUGIN_URL',  plugin_dir_url( __FILE__ ) );
+define( 'JPSSP__PLUGIN_FILE', __FILE__ );
+define( 'JPSSP__VERSION',     '0.1.3' );
 
-add_action('init', array('Jetpack_Sharing_Source_Pack', 'init'));
+add_action( 'init', array( 'Jetpack_Sharing_Source_Pack', 'init' ) );
 
-require_once(JPSSP__PLUGIN_DIR . 'class.jpssp-api.php');
+require_once( JPSSP__PLUGIN_DIR . 'class.jpssp-api.php' );
 
 class Jetpack_Sharing_Source_Pack {
 	static $instance;
@@ -37,11 +37,11 @@ class Jetpack_Sharing_Source_Pack {
 	private $data;
 
 	static function init() {
-		if(!self::$instance) {
-			if(did_action('plugins_loaded')) {
+		if( !self::$instance ) {
+			if( did_action('plugins_loaded') ) {
 				self::plugin_textdomain();
 			} else {
-				add_action('plugins_loaded', array(__CLASS__, 'plugin_textdomain'));
+				add_action( 'plugins_loaded', array( __CLASS__, 'plugin_textdomain' ) );
 			}
 
 			self::$instance = new Jetpack_Sharing_Source_Pack;
@@ -50,51 +50,51 @@ class Jetpack_Sharing_Source_Pack {
 	}
 
 	private function __construct() {
-		add_action('wp_enqueue_scripts', array(&$this, 'register_assets'));
-		add_action('admin_enqueue_scripts', array(&$this, 'admin_menu_assets'));
+		add_action( 'wp_enqueue_scripts',    array( &$this, 'register_assets' ) );
+		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_menu_assets' ) );
 
-		if(did_action('plugins_loaded')) {
+		if( did_action('plugins_loaded') ) {
 			$this->require_services();
 		} else {
-			add_action('plugins_loaded', array(&$this, 'require_services'));
+			add_action( 'plugins_loaded', array( &$this, 'require_services' ) );
 		}
-		add_filter('plugin_row_meta', array(&$this, 'plugin_row_meta'), 10, 2);
+		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta' ), 10, 2 );
 	}
 
 	function register_assets() {
-		if ( get_option( 'sharedaddy_disable_resources' ) ) {
+		if( get_option('sharedaddy_disable_resources') ) {
 			return;
 		}
 
-		if(!Jetpack::is_module_active('sharedaddy')) {
+		if( !Jetpack::is_module_active('sharedaddy') ) {
 			return;
 		}
 
-		wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array(), JPSSP__VERSION);
+		wp_enqueue_style( 'jpssp', JPSSP__PLUGIN_URL . 'style.css', array(), JPSSP__VERSION );
 	}
 
-	function admin_menu_assets($hook) {
-		if($hook == 'settings_page_sharing') {
-			wp_enqueue_style('jpssp', JPSSP__PLUGIN_URL .'style.css', array('sharing', 'sharing-admin'), JPSSP__VERSION);
+	function admin_menu_assets( $hook ) {
+		if( $hook == 'settings_page_sharing' ) {
+			wp_enqueue_style( 'jpssp', JPSSP__PLUGIN_URL . 'style.css', array('sharing', 'sharing-admin'), JPSSP__VERSION );
 		}
 	}
 
 	function require_services() {
-		if(class_exists('Jetpack')) {
-			require_once(JPSSP__PLUGIN_DIR . 'class.sharing-services.php');
+		if( class_exists('Jetpack') ) {
+			require_once( JPSSP__PLUGIN_DIR . 'class.sharing-services.php' );
 		}
 	}
 
 	static function plugin_textdomain() {
-		load_plugin_textdomain('jpssp', false, dirname(plugin_basename(JPSSP__PLUGIN_FILE)) . '/languages/');
+		load_plugin_textdomain( 'jpssp', false, dirname( plugin_basename( JPSSP__PLUGIN_FILE ) ) . '/languages/' );
 	}
 
-	function plugin_row_meta($links, $file) {
-		if(plugin_basename(__FILE__) === $file) {
+	function plugin_row_meta( $links, $file ) {
+		if( plugin_basename( __FILE__ ) === $file ) {
 			$links[] = sprintf(
 				'<a href="%s">%s</a>',
 				esc_url('http://www.extendwings.com/donate/'),
-				__('Donate', 'jpssp')
+				__( 'Donate', 'jpssp' )
 			);
 		}
 		return $links;
