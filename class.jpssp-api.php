@@ -24,7 +24,8 @@ class JPSSP_API {
 	}
 
 	function force_ssl( $force_ssl, $post_id = 0, $url = '' ) {
-		if( $url == set_url_scheme( $url, 'https' ) ) {
+		global $wp_query;
+		if( is_object( $wp_query ) && isset( $wp_query->query[ self::API_ENDPOINT ] ) && $url == set_url_scheme( $url, 'https' ) ) {
 			$force_ssl = true;
 		}
 		return $force_ssl;
