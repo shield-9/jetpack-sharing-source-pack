@@ -58,15 +58,16 @@ class JPSSP_API {
 	public function template_redirect() {
 		global $wp_query;
 		if( is_object( $wp_query ) && isset( $wp_query->query[ self::API_ENDPOINT ] ) ) {
-			$feed_url   = get_bloginfo('rss2_url');
-			$feedly_url = 'https://cloud.feedly.com/v3/feeds/' . rawurlencode( 'feed/' . $feed_url );
+			$feed_url       = get_bloginfo('rss2_url');
+			$feedly_url     = 'https://cloud.feedly.com/v3/feeds/' . rawurlencode( 'feed/' . $feed_url );
+			$transient_name = 'jpssp-feedly-api_' . hash( 'crc32b', $feedly_url );
 
-			if( ( $response = get_transient('jpssp-feedly-api') ) === false ) {
+			if( ( $response = get_transient( $transient_name ) ) === false ) {
 				$response = wp_remote_get( $feedly_url, array( 'httpversion' => '1.1' ) );
 				$status   = wp_remote_retrieve_response_code( $response );
 
 				if( !is_wp_error( $response ) && $status == 200 ) {
-					set_transient( 'jpssp-feedly-api', $response, HOUR_IN_SECONDS );
+					set_transient( $transient_name, $response, HOUR_IN_SECONDS );
 				}
 			} else {
 				$status = wp_remote_retrieve_response_code( $response );
