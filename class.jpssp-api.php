@@ -9,11 +9,11 @@ abstract class JPSSP_API {
 	const API_ENDPOINT = 'jpssp-api';
 
 	static function init() {
-		if( !self::$instance ) {
+		if( !static::$instance ) {
 			$name = get_called_class();
-			self::$instance = new $name();
+			static::$instance = new $name();
 		}
-		return self::$instance;
+		return static::$instance;
 	}
 
 	function __construct() {
@@ -26,33 +26,33 @@ abstract class JPSSP_API {
 
 	function force_ssl( $force_ssl, $post_id = 0, $url = '' ) {
 		global $wp_query;
-		if( is_object( $wp_query ) && isset( $wp_query->query[ self::API_ENDPOINT ] ) && $url == set_url_scheme( $url, 'https' ) ) {
+		if( is_object( $wp_query ) && isset( $wp_query->query[ static::API_ENDPOINT ] ) && $url == set_url_scheme( $url, 'https' ) ) {
 			$force_ssl = true;
 		}
 		return $force_ssl;
 	}
 
 	static function activation(){
-		update_option( self::OPTION_NAME_ACTIVATED, true );
+		update_option( static::OPTION_NAME_ACTIVATED, true );
 		flush_rewrite_rules();
 	}
 
 	static function deactivation(){
-		delete_option( self::OPTION_NAME_ACTIVATED, true );
+		delete_option( static::OPTION_NAME_ACTIVATED, true );
 		flush_rewrite_rules();
 	}
 	public function delete_option( $option ){
-		if( 'rewrite_rules' === $option && get_option( self::OPTION_NAME_ACTIVATED ) ) { 
+		if( 'rewrite_rules' === $option && get_option( static::OPTION_NAME_ACTIVATED ) ) { 
 			$this->add_rewrite_endpoint();
 		}
 	}
 
 	public function add_rewrite_endpoint() {
-		add_rewrite_endpoint( self::API_ENDPOINT, EP_ROOT );
+		add_rewrite_endpoint( static::API_ENDPOINT, EP_ROOT );
 	}
 
 	public function query_vars( $vars ) {
-		$vars[] = self::API_ENDPOINT;
+		$vars[] = static::API_ENDPOINT;
 		return $vars;
 	}
 
