@@ -6,7 +6,7 @@ class JPSSP_API {
 	static $instance;
 
 	const OPTION_NAME_ACTIVATED = 'jpssp-api_activated';
-	abstract const API_ENDPOINT;
+	const API_ENDPOINT = null;
 
 	static function init() {
 		if( !self::$instance ) {
