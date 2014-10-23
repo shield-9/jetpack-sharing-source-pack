@@ -163,6 +163,11 @@ class Google_API extends JPSSP_API {
 				$count = intval( $result['result']['metadata']['globalCounts']['count'] );
 			}
 
+			$data = array(
+				'url'   => $url,
+				'count' => $count,
+			);
+
 			nocache_headers();
 			header('Content-Type: application/javascript; charset=UTF-8');
 
@@ -173,7 +178,7 @@ class Google_API extends JPSSP_API {
 
 			echo $callback . '(';
 			if( !is_wp_error( $response ) && $status == 200 ) {
-				echo json_encode( $count, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE );
+				echo json_encode( array( $url => $count ), JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE );
 			} else {
 				status_header( $status );
 				echo json_encode( array(

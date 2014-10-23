@@ -9,6 +9,10 @@ jQuery(document).ready(function($) {
 			// Hatena
 			if( $('#sharing-hatena-' + WPCOM_sharing_counts[ url ] ).length )
 				get_hatena_count( url );
+
+			// Google+
+			if( $('#sharing-google-' + WPCOM_sharing_counts[ url ] ).length )
+				get_google_count( url );
 		}
 
 	}
@@ -29,6 +33,14 @@ jQuery(document).ready(function($) {
 
 		if('http:' == document.location.protocol )
 			get_script( request_url );
+	}
+
+	function get_google_count( url ) {
+		var request_url = 'http://www.extendwings.com/google-api/';
+
+		request_url += '?url=' + encodeURI( url ) + '&callback=JPSSP_Sharing.update_google_count';
+
+		get_script( request_url );
 	}
 
 	function get_script( url ) {
@@ -60,4 +72,9 @@ var JPSSP_Sharing = {
 			}
 		}
 	}
+	update_google_count: function( data ) {
+		if('undefined' != typeof data.count && ( data.count * 1 ) > 0 ) {
+			WPCOMSharing.inject_share_count('sharing-google-' + WPCOM_sharing_counts[ data.url ], data.count );
+		}
+	},
 };
