@@ -178,7 +178,7 @@ class Google_API extends JPSSP_API {
 
 			echo $callback . '(';
 			if( !is_wp_error( $response ) && $status == 200 ) {
-				echo json_encode( array( $url => $count ), JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE );
+				echo json_encode( $data, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE );
 			} else {
 				status_header( $status );
 				echo json_encode( array(
