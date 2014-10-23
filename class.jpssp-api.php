@@ -2,15 +2,16 @@
 
 $instance = Feedly_API::init();
 
-class JPSSP_API {
+abstract class JPSSP_API {
 	static $instance;
 
 	const OPTION_NAME_ACTIVATED = 'jpssp-api_activated';
-	const API_ENDPOINT = null;
+	const API_ENDPOINT = 'jpssp-api';
 
 	static function init() {
 		if( !self::$instance ) {
-			self::$instance = new __CLASS__;
+			$name = get_called_class();
+			self::$instance = new $name();
 		}
 		return self::$instance;
 	}
