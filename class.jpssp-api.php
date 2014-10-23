@@ -6,11 +6,11 @@ class JPSSP_API {
 	static $instance;
 
 	const OPTION_NAME_ACTIVATED = 'jpssp-api_activated';
-	const API_ENDPOINT = 'feedly-api';
+	abstract const API_ENDPOINT;
 
 	static function init() {
 		if( !self::$instance ) {
-			self::$instance = new JPSSP_API;
+			self::$instance = new __CLASS__;
 		}
 		return self::$instance;
 	}
@@ -54,6 +54,14 @@ class JPSSP_API {
 		$vars[] = self::API_ENDPOINT;
 		return $vars;
 	}
+
+	abstract function template_redirect();
+}
+
+class Feedly_API extends JPSSP_API {
+	static $instance;
+
+	const API_ENDPOINT = 'feedly-api';
 
 	public function template_redirect() {
 		global $wp_query;
