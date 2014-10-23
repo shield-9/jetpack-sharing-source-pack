@@ -101,5 +101,5 @@ class Jetpack_Sharing_Source_Pack {
 	}
 }
 
-register_activation_hook( __FILE__ , 'JPSSP_API::activation' );
-register_deactivation_hook( __FILE__ , 'JPSSP_API::deactivation' );
+register_activation_hook( __FILE__ , 'Feedly_API::activation' );
+register_deactivation_hook( __FILE__ , 'Feedly_API::deactivation' );
