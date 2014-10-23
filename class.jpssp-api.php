@@ -1,6 +1,6 @@
 <?php
 
-$instance = JPSSP_API::init();
+$instance = Feedly_API::init();
 
 class JPSSP_API {
 	static $instance;
