@@ -154,7 +154,7 @@ class Google_API extends JPSSP_API {
 				$status = wp_remote_retrieve_response_code( $response );
 			}
 
-			$result = json_decode( $response, true );
+			$result = json_decode( wp_remote_retrieve_body( $response ), true );
 			$result = $result[0];
 
 			if( isset( $result['error'] ) || !isset( $result['result']['metadata']['globalCounts']['count'] ) ) {
