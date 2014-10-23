@@ -71,10 +71,10 @@ var JPSSP_Sharing = {
 				}
 			}
 		}
-	}
+	},
 	update_google_count: function( data ) {
 		if('undefined' != typeof data.count && ( data.count * 1 ) > 0 ) {
 			WPCOMSharing.inject_share_count('sharing-google-' + WPCOM_sharing_counts[ data.url ], data.count );
 		}
-	},
+	}
 };
