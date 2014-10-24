@@ -70,6 +70,7 @@ class Jetpack_Sharing_Source_Pack {
 			return;
 		}
 
+		wp_enqueue_script( 'jpssp', JPSSP__PLUGIN_URL . 'count.js', array('jquery'), JPSSP__VERSION, true );
 		wp_enqueue_style( 'jpssp', JPSSP__PLUGIN_URL . 'style.css', array(), JPSSP__VERSION );
 	}
 
@@ -101,5 +102,7 @@ class Jetpack_Sharing_Source_Pack {
 	}
 }
 
-register_activation_hook( __FILE__ , 'JPSSP_API::activation' );
-register_deactivation_hook( __FILE__ , 'JPSSP_API::deactivation' );
+register_activation_hook( __FILE__ , 'Feedly_API::activation' );
+register_deactivation_hook( __FILE__ , 'Feedly_API::deactivation' );
+register_activation_hook( __FILE__ , 'Google_API::activation' );
+register_deactivation_hook( __FILE__ , 'Google_API::deactivation' );

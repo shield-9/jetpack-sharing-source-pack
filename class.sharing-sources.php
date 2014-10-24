@@ -97,7 +97,7 @@ class Share_Feedly extends Sharing_Source {
 		global $post;
 	?>
 		<script>
-			var feedly_api = '<?php echo esc_js( set_url_scheme( home_url( JPSSP_API::API_ENDPOINT . '/' ) ) ); ?>';
+			var feedly_api = '<?php echo esc_js( set_url_scheme( home_url( Feedly_API::API_ENDPOINT . '/' ) ) ); ?>';
 			<?php if( $this->smart ): ?>
 			var feedly_smart = true;
 			<?php else: ?>
@@ -105,7 +105,6 @@ class Share_Feedly extends Sharing_Source {
 			<?php endif; ?>
 		</script>
 	<?php
-		wp_enqueue_script( 'jpssp', JPSSP__PLUGIN_URL . 'count.js', array('jquery'), JPSSP__VERSION, true );
 		$this->js_dialog( $this->shortname, array( 'width' => 1024, 'height' => 576 ) );
 	}
 
@@ -382,5 +381,17 @@ class Share_Hatena extends Sharing_Source {
 		// Redirect to Hatena
 		wp_redirect( $hatena_url );
 		die();
+	}
+}
+
+class Share_Google extends Share_GooglePlus1 {
+	public function display_footer() {
+		if( !$this->smart ) {
+		?>
+			<script>var google_api = '<?php echo esc_js( set_url_scheme( home_url( Google_API::API_ENDPOINT . '/' ) ) ); ?>';</script>
+		<?php
+		}
+
+		parent::display_footer();
 	}
 }
