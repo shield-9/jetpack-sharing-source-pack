@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
 	}
 
 	function get_google_count( url ) {
-		var request_url = 'http://www.extendwings.com/google-api/';
+		var request_url = google_api;
 
 		request_url += '?url=' + encodeURI( url ) + '&callback=JPSSP_Sharing.update_google_count';
 

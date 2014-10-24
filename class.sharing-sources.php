@@ -383,3 +383,15 @@ class Share_Hatena extends Sharing_Source {
 		die();
 	}
 }
+
+class Share_Google extends Share_GooglePlus1 {
+	public function display_footer() {
+		if( !$this->smart ) {
+		?>
+			<script>var google_api = '<?php echo esc_js( set_url_scheme( home_url( Google_API::API_ENDPOINT . '/' ) ) ); ?>';</script>
+		<?php
+		}
+
+		parent::display_footer();
+	}
+}

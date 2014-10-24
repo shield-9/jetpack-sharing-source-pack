@@ -48,7 +48,10 @@ class JPSSP_Sharing_Service {
 		if( !array_key_exists( 'hatena', $services ) ) {
 			$services['hatena'] = 'Share_Hatena';
 		}
-		
+		if( !array_key_exists( 'google-plus-1', $services ) || 'Share_GooglePlus1' == $services['google-plus-1'] ) {
+			$services['google-plus-1'] = 'Share_Google';
+		}
+
 		return $services;
 	}
 }
