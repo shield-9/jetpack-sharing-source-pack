@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
 	function get_feedly_count( url ) {
 		var request_url = feedly_api;
 
-		if('undefined' != typeof feedly_smart && feedly_smart )
+		if( feedly_smart )
 			request_url += 'smart/';
 		
 		request_url += '?url=' + encodeURI( url ) + '&callback=JPSSP_Sharing.update_feedly_count';
