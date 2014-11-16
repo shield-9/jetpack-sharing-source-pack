@@ -266,7 +266,8 @@ class Share_Instapaper extends Sharing_Source {
 	}
 
 	function display_footer() {
-		$this->js_dialog( $this->shortname );
+		if( !$this->smart )
+			$this->js_dialog( $this->shortname );
 	}
 
 	function process_request( $post, array $post_data ) {
@@ -359,14 +360,17 @@ class Share_Hatena extends Sharing_Source {
 	}
 
 	function display_header() {
-		wp_enqueue_style( 'jpssp', JPSSP__PLUGIN_URL . 'style.css', array('sharedaddy'), JPSSP__VERSION );
+		if( !$this->smart )
+			wp_enqueue_style( 'jpssp', JPSSP__PLUGIN_URL . 'style.css', array('sharedaddy'), JPSSP__VERSION );
 	}
 
 	function display_footer() {
+		if( $this->smart ) {
 	?>
 		<script type="text/javascript" src="<?php echo $this->get_resource_host(); ?>/js/bookmark_button.js" charset="utf-8" async="async"></script>
 	<?php
-		$this->js_dialog( $this->shortname );
+		} else
+			$this->js_dialog( $this->shortname );
 	}
 
 	function process_request( $post, array $post_data ) {
