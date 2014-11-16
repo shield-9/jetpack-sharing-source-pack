@@ -129,7 +129,7 @@ class Google_API extends JPSSP_API {
 
 	public function template_redirect() {
 		global $wp_query;
-		trigger_error("called google", E_USER_NOTICE);
+
 		if( is_object( $wp_query ) && isset( $wp_query->query[ self::API_ENDPOINT ] ) ) {
 			if( !empty( $_GET['url'] ) ) {
 				$url = $_GET['url'];
