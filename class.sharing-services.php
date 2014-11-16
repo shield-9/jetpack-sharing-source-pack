@@ -51,6 +51,9 @@ class JPSSP_Sharing_Service {
 		if( !array_key_exists( 'google-plus-1', $services ) || 'Share_GooglePlus1' == $services['google-plus-1'] ) {
 			$services['google-plus-1'] = 'Share_Google';
 		}
+		if( !array_key_exists( 'fbsend', $services ) ) {
+			$services['fbsend'] = 'Share_FB_Send';
+		}
 
 		return $services;
 	}

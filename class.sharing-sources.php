@@ -388,6 +388,109 @@ class Share_Hatena extends Sharing_Source {
 	}
 }
 
+class Share_FB_Send extends Sharing_Source {
+	var $shortname = 'fbsend';
+
+	function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if( 'official' == $this->button_style )
+			$this->smart = true;
+		else
+			$this->smart = false;
+	}
+
+	function get_name() {
+		return __( 'Facebook Send', 'jpssp' );
+	}
+
+	function has_custom_button_style() {
+		return $this->smart;
+	}
+
+	function guess_locale_from_lang( $lang ) {
+		if ( 'en' == $lang || 'en_US' == $lang || !$lang ) {
+			return 'en_US';
+		}
+
+		if ( !class_exists( 'GP_Locales' ) ) {
+			if ( !defined( 'JETPACK__GLOTPRESS_LOCALES_PATH' ) || !file_exists( JETPACK__GLOTPRESS_LOCALES_PATH ) ) {
+				return false;
+			}
+
+			require JETPACK__GLOTPRESS_LOCALES_PATH;
+		}
+
+		if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
+			// WP.com: get_locale() returns 'it'
+			$locale = GP_Locales::by_slug( $lang );
+		} else {
+			// Jetpack: get_locale() returns 'it_IT';
+			$locale = GP_Locales::by_field( 'wp_locale', $lang );
+		}
+
+		if ( !$locale || empty( $locale->facebook_locale ) ) {
+			return false;
+		}
+
+		return $locale->facebook_locale;
+	}
+
+	function get_display( $post ) {
+		if( $this->smart )
+			return sprintf(
+				'<div class="fb-send" data-href="%s" data-height="20" data-colorscheme="light"></div>',
+				get_permalink( $post->ID )
+			);
+		else
+			return $this->get_link(
+				get_permalink( $post->ID ),
+				_x( 'Facebook Send', 'share to', 'jpssp' ),
+				__( 'Click to share on Facebook Messenger', 'jpssp' ),
+				'share=fbsend',
+				'sharing-fbsend-' . $post->ID
+			);
+	}
+
+	function display_header() {
+		wp_enqueue_style( 'jpssp', JPSSP__PLUGIN_URL . 'style.css', array('sharedaddy'), JPSSP__VERSION );
+	}
+
+	function display_footer() {
+		$locale = $this->guess_locale_from_lang( get_locale() );
+		if( $this->smart ){
+	?>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/<?php echo $locale; ?>/sdk.js#xfbml=1&version=v2.0";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+	<?php
+		}else {
+			$this->js_dialog( $this->shortname );
+		}
+	}
+
+	function process_request( $post, array $post_data ) {
+		$hatena_url = sprintf(
+			'http://www.facebook.com/dialog/send?app_id=%1$s&link=%3$s&redirect_uri=%3$s',
+			'123050457758183',
+			$this->get_share_url( $post->ID ),
+			get_permalink( $post->ID )
+		);
+
+		// Record stats
+		parent::process_request( $post, $post_data );
+
+		// Redirect to Facebook Messenger
+		wp_redirect( $fbsend_url );
+		die();
+	}
+}
+
 class Share_Google extends Share_GooglePlus1 {
 	public function display_footer() {
 		if( !$this->smart ) {
