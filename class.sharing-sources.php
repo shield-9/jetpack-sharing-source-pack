@@ -475,7 +475,7 @@ class Share_FB_Send extends Sharing_Source {
 	}
 
 	function process_request( $post, array $post_data ) {
-		$hatena_url = sprintf(
+		$fbsend_url = sprintf(
 			'http://www.facebook.com/dialog/send?app_id=%1$s&link=%3$s&redirect_uri=%3$s',
 			'123050457758183',
 			$this->get_share_url( $post->ID ),
