@@ -30,6 +30,10 @@ if( sharing_js_options && sharing_js_options.counts ) {
 				]
 			};
 
+			if('https:' == window.location.protocol ) {
+				delete urls['hatena'];
+			}
+
 			for( service in urls ) {
 				if( ! jQuery('a[data-shared=sharing-' + service + '-' + id  + ']').length ) {
 					continue;
