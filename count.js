@@ -74,12 +74,10 @@ if( sharing_js_options && sharing_js_options.counts ) {
 	};
 }
 
-(function($){
-	function WPCOMSharing_do() {
-		if('undefined' != typeof WPCOM_sharing_counts ) {
-			for( var url in WPCOM_sharing_counts ) {
-				JPSSP_Sharing.get_counts( url );
-			}
+jQuery(document).ready(function($) {
+	if('undefined' != typeof WPCOM_sharing_counts ) {
+		for( var url in WPCOM_sharing_counts ) {
+			JPSSP_Sharing.get_counts( url );
 		}
 	}
-})( jQuery );
+});
