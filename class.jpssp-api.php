@@ -96,14 +96,6 @@ class Feedly_API extends JPSSP_API {
 				$body->{'url'} = esc_js( $_GET['url'] );
 			}
 
-			switch( $wp_query->query[ self::API_ENDPOINT ] ) {
-				case 'smart':
-					$body->{'smart'} = true;
-					break;
-				default:
-					$body->{'smart'} = false;
-			}
-
 			echo $callback . '(';
 			if( !is_wp_error( $response ) && $status == 200 ) {
 				echo json_encode( $body, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE );
