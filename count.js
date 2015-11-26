@@ -19,7 +19,7 @@ if( sharing_js_options && sharing_js_options.counts ) {
 
 			urls = {
 				hatena: [
-					'http://api.b.st-hatena.com/entry.counts?url=' +
+					'https://b.hatena.ne.jp/entry.counts?url=' +
 						https_url +
 						'&url=' +
 						http_url +
@@ -29,10 +29,6 @@ if( sharing_js_options && sharing_js_options.counts ) {
 					google_api + '?url=' + encodeURIComponent( url ) + '&_jsonp=JPSSP_Sharing.update_google_count'
 				]
 			};
-
-			if('https:' == window.location.protocol ) {
-				delete urls['hatena'];
-			}
 
 			for( service in urls ) {
 				// If already fetched, skip it.
