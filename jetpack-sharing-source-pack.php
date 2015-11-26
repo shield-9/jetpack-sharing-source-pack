@@ -27,6 +27,7 @@ define( 'JPSSP__PLUGIN_FILE', __FILE__ );
 define( 'JPSSP__VERSION',     '0.1.4-dev' );
 
 require_once( JPSSP__PLUGIN_DIR . 'class.jpssp.php' );
+require_once( JPSSP__PLUGIN_DIR . 'class.jpssp-api.php' );
 
 add_action( 'init',                   array( 'JPSSP', 'init' ) );
 add_action( 'jetpack_modules_loaded', array( 'JPSSP', 'require_services' ) );

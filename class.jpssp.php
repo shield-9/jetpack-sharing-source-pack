@@ -55,8 +55,6 @@ class JPSSP {
 	}
 
 	static function register_rest_api() {
-		require_once( JPSSP__PLUGIN_DIR . 'class.jpssp-api.php' );
-
 		Feedly_API::init();
 		Google_API::init();
 	}
