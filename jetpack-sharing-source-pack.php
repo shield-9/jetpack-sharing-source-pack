@@ -62,6 +62,12 @@ class Jetpack_Sharing_Source_Pack {
 			add_action( 'plugins_loaded', array( &$this, 'require_services' ) );
 		}
 
+		if( did_action('jetpack_modules_loaded') ) {
+			JPSSP_Sharing_Service::init();
+		} else {
+			add_action( 'jetpack_modules_loaded', array( 'JPSSP_Sharing_Service', 'init' ) );
+		}
+
 		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta' ), 10, 2 );
 	}
 
