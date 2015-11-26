@@ -21,6 +21,11 @@ abstract class JPSSP_API {
 		register_rest_route( static::API_NS, static::API_ENDPOINT, array(
 			'methods'  => 'GET',
 			'callback' => array( &$this, 'get_item' ),
+			'args'     => array(
+				'url' => array(
+					'required' => false,
+				),
+			),
 		) );
 	}
 
