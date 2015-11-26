@@ -16,7 +16,7 @@ if( sharing_js_options && sharing_js_options.counts ) {
 
 			urls = {
 				feedly: [
-					feedly_api + '?url=' + encodeURIComponent( url ) + '&callback=JPSSP_Sharing.update_feedly_count'
+					feedly_api + '?_jsonp=JPSSP_Sharing.update_feedly_count'
 				],
 				hatena: [
 					'http://api.b.st-hatena.com/entry.counts?url=' +
@@ -26,7 +26,7 @@ if( sharing_js_options && sharing_js_options.counts ) {
 						'&callback=JPSSP_Sharing.update_hatena_count'
 				],
 				google: [
-					google_api + '?url=' + encodeURIComponent( url ) + '&callback=JPSSP_Sharing.update_google_count'
+					google_api + '?url=' + encodeURIComponent( url ) + '&_jsonp=JPSSP_Sharing.update_google_count'
 				]
 			};
 

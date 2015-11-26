@@ -97,7 +97,7 @@ class Share_Feedly extends Sharing_Source {
 		global $post;
 	?>
 		<script>
-			var feedly_api = '<?php echo esc_js( set_url_scheme( home_url( Feedly_API::API_ENDPOINT . '/' ) ) ); ?>';
+			var feedly_api = '<?php echo esc_js( rest_url( Feedly_API::API_PATH . '/' ) ); ?>';
 			<?php if( $this->smart ): ?>
 			var feedly_smart = true;
 			<?php else: ?>
@@ -392,7 +392,7 @@ class Share_Google extends Share_GooglePlus1 {
 	public function display_footer() {
 		if( !$this->smart ) {
 		?>
-			<script>var google_api = '<?php echo esc_js( set_url_scheme( home_url( Google_API::API_ENDPOINT . '/' ) ) ); ?>';</script>
+			<script>var google_api = '<?php echo esc_js( rest_url( Google_API::API_PATH . '/' ) ); ?>';</script>
 		<?php
 		}
 

@@ -16,7 +16,7 @@ if( !function_exists( 'add_action' ) ) {
 	exit;
 }
 
-if( version_compare( get_bloginfo( 'version' ), '3.8', '<' ) ) {
+if( version_compare( get_bloginfo( 'version' ), '4.4-beta1', '<' ) ) {
 	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	deactivate_plugins( __FILE__ );
 }
@@ -29,6 +29,10 @@ define( 'JPSSP__VERSION',     '0.1.4-dev' );
 add_action( 'init', array( 'Jetpack_Sharing_Source_Pack', 'init' ) );
 
 require_once( JPSSP__PLUGIN_DIR . 'class.jpssp-api.php' );
+
+add_action( 'rest_api_init', array( 'Feedly_API', 'init' ) );
+add_action( 'rest_api_init', array( 'Google_API', 'init' ) );
+
 
 class Jetpack_Sharing_Source_Pack {
 	static $instance;
@@ -101,8 +105,3 @@ class Jetpack_Sharing_Source_Pack {
 		return $links;
 	}
 }
-
-register_activation_hook( __FILE__ , 'Feedly_API::activation' );
-register_deactivation_hook( __FILE__ , 'Feedly_API::deactivation' );
-register_activation_hook( __FILE__ , 'Google_API::activation' );
-register_deactivation_hook( __FILE__ , 'Google_API::deactivation' );
