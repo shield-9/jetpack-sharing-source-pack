@@ -85,7 +85,7 @@ class Share_Feedly extends Sharing_Source {
 					_x( 'Feedly', 'share to', 'jpssp' ),
 					__( 'Subscribe on Feedly', 'jpssp' ),
 					'share=feedly',
-					'sharing-feedly-' . $post->ID
+					'sharing-feedly'
 				);
 		}
 	}
