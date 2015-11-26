@@ -110,7 +110,7 @@ class Share_Feedly extends Sharing_Source {
 
 	function process_request( $post, array $post_data ) {
 		$feed_url   = get_bloginfo('rss2_url');
-		$feedly_url = $this->http() . '://feedly.com/#' . rawurlencode( 'subscription/' . $feed_url );
+		$feedly_url = 'https://feedly.com/i/subscription/' . $feed_url;
 
 		// Redirect to Feedly
 		wp_redirect( $feedly_url );
