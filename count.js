@@ -55,6 +55,8 @@ if( sharing_js_options && sharing_js_options.counts ) {
 		},
 		update_hatena_count: function( data ) {
 			if('undefined' != typeof data && 'undefined' != typeof Object.keys( data ) && Object.keys( data ).length > 0 ){
+				var shareCount = 0;
+
 				if('undefined' != typeof data[ Object.keys( data )[0] ] ) {
 					shareCount += data[ Object.keys( data )[0] ];
 				}
