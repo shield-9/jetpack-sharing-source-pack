@@ -2,8 +2,8 @@
 
 abstract class JPSSP_API {
 	const API_NS = 'jpssp/v1';
-	const API_ENDPOINT;
-	const API_PATH;
+	const API_ENDPOINT = '';
+	const API_PATH = self::API_NS . '/' . self::API_ENDPOINT;
 
 	static $instance;
 
@@ -63,7 +63,7 @@ abstract class JPSSP_API {
 
 class Feedly_API extends JPSSP_API {
 	const API_ENDPOINT = 'feedly';
-	const API_PATH = self::API_NS . '/' . static::API_ENDPOINT;
+	const API_PATH = self::API_NS . '/' . self::API_ENDPOINT;
 
 	public function get_item() {
 		$feed_url       = get_bloginfo('rss2_url');
@@ -83,7 +83,7 @@ class Feedly_API extends JPSSP_API {
 
 class Google_API extends JPSSP_API {
 	const API_ENDPOINT = 'google';
-	const API_PATH     = self::API_NS . '/' . static::API_ENDPOINT;
+	const API_PATH     = self::API_NS . '/' . self::API_ENDPOINT;
 
 	public function get_item() {
 
