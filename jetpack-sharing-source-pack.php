@@ -4,7 +4,7 @@
  * Plugin URI: http://wordpress.org/plugins/jpssp/
  * Description: Add more services to Jepack Sharing
  * Version: 0.1.4-dev
- * Author: Daisuke Takahashi(Extend Wings)
+ * Author: Daisuke Takahashi (Extend Wings)
  * Author URI: https://www.extendwings.com
  * License: AGPLv3 or later
  * Text Domain: jpssp

@@ -3,7 +3,7 @@ Contributors: extendwings
 Donate link: https://www.extendwings.com/donate/
 Tags: Jetpack, social, sharing, share, SNS, 
 Requires at least: 4.4
-Tested up to: 4.4
+Tested up to: 4.5
 Stable tag: 0.1.3
 License: AGPLv3 or later
 License URI: http://www.gnu.org/licenses/agpl.txt
@@ -23,7 +23,7 @@ Currently, we support the following sources:
 * [Instapaper](https://www.instapaper.com/) (Since 0.1.2)
 * [Delicious](http://delicious.com/) (Since 0.1.2)
 
-Any suggestion to add new service is welcome! Please let me know from [here](https://www.extendwings.com/contact/en/).
+Any suggestion to add new service is welcome! Please let me know from [here](https://www.extendwings.com/contact/).
 
 ### Notice
 
@@ -31,7 +31,7 @@ Don't forget to install Jetpack!
 
 ### License
 
-* Copyright (c) 2012-2015 [Daisuke Takahashi(Extend Wings)](https://www.extendwings.com/)
+* Copyright (c) 2012-2016 [Daisuke Takahashi (Extend Wings)](https://www.extendwings.com/)
 * Portions (c) 2010-2012 Web Online.
 * Unless otherwise stated, all files in this repo is licensed under *GNU AFFERO GENERAL PUBLIC LICENSE, Version 3*. See *LICENSE* file.
 
@@ -43,7 +43,7 @@ Don't forget to install Jetpack!
 == Frequently Asked Questions ==
 
 = This plugin is broken! Thanks for nothing! =
-First of all, we supports PHP 5.6+, MySQL 5.5+, WordPress 4.4+. Old software(vulnerable!) is not supported.
+First of all, we supports PHP 5.6+, MySQL 5.6+, WordPress 4.4+. Old software(vulnerable!) is not supported.
 If you're in supported environment, please create [pull request](https://github.com/shield-9/jetpack-sharing-source-pack/compare/) or [issue](https://github.com/shield-9/jetpack-sharing-source-pack/issues/new).
 
 == Screenshots ==
@@ -52,6 +52,7 @@ This plugin has no screen.
 
 == Changelog ==
 = 0.1.4 =
+* Enhancement: Use WP REST API for counters.
 * [`git diff 0.1.3...0.1.4`](https://github.com/shield-9/jetpack-sharing-source-pack/compare/0.1.3...0.1.4)
 
 = 0.1.3 =
@@ -75,11 +76,5 @@ This plugin has no screen.
 
 == Upgrade Notice ==
 
-= 0.1.2 =
-* None
-
-= 0.1.1 =
-* None
-
-= 0.1.0 =
+= 0.1.0-0.1.4 =
 * None
