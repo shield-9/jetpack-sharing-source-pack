@@ -85,7 +85,7 @@ class Share_Feedly extends Sharing_Source {
 					_x( 'Feedly', 'share to', 'jpssp' ),
 					__( 'Subscribe on Feedly', 'jpssp' ),
 					'share=feedly',
-					'sharing-feedly-' . $post->ID
+					'sharing-feedly'
 				);
 		}
 	}
@@ -97,7 +97,7 @@ class Share_Feedly extends Sharing_Source {
 		global $post;
 	?>
 		<script>
-			var feedly_api = '<?php echo esc_js( set_url_scheme( home_url( Feedly_API::API_ENDPOINT . '/' ) ) ); ?>';
+			var feedly_api = '<?php echo esc_js( rest_url( Feedly_API::API_PATH . '/' ) ); ?>';
 			<?php if( $this->smart ): ?>
 			var feedly_smart = true;
 			<?php else: ?>
@@ -110,7 +110,7 @@ class Share_Feedly extends Sharing_Source {
 
 	function process_request( $post, array $post_data ) {
 		$feed_url   = get_bloginfo('rss2_url');
-		$feedly_url = $this->http() . '://feedly.com/#' . rawurlencode( 'subscription/' . $feed_url );
+		$feedly_url = 'https://feedly.com/i/subscription/' . $feed_url;
 
 		// Redirect to Feedly
 		wp_redirect( $feedly_url );
@@ -392,7 +392,7 @@ class Share_Google extends Share_GooglePlus1 {
 	public function display_footer() {
 		if( !$this->smart ) {
 		?>
-			<script>var google_api = '<?php echo esc_js( set_url_scheme( home_url( Google_API::API_ENDPOINT . '/' ) ) ); ?>';</script>
+			<script>var google_api = '<?php echo esc_js( rest_url( Google_API::API_PATH . '/' ) ); ?>';</script>
 		<?php
 		}
 

@@ -1,9 +1,9 @@
 # Jetpack Sharing Source Pack
 * **Contributors**: extendwings,
-* **Donate link**: http://www.extendwings.com/donate/
+* **Donate link**: https://www.extendwings.com/donate/
 * **Tags**: Jetpack, social, sharing, share, SNS, 
-* **Requires at least**: 3.8
-* **Tested up to**: 4.0
+* **Requires at least**: 4.4
+* **Tested up to**: 4.4
 * **Stable tag**: 0.1.3
 * **License**: AGPLv3 or later
 * **License URI**: http://www.gnu.org/licenses/agpl.txt
@@ -12,7 +12,7 @@
 
 ## Description
 
-[Jetpack](http://jetpack.me) is awesome! It's used globally. But they can't cover all services. For example, "[mixi](https://mixi.jp)" and "[LINE](http://line.me)".
+[Jetpack](http://jetpack.me) is awesome! It's used globally. But they can't cover all services. For example, "[LINE](http://line.me)".
 This supplies additional Jetpack sharing sources for your website.
 
 Currently, we support the following sources:
@@ -31,7 +31,7 @@ Don't forget to install Jetpack!
 
 ### License
 
-* Copyright (c) 2012-2014 [Daisuke Takahashi(Extend Wings)](http://www.extendwings.com/)
+* Copyright (c) 2012-2015 [Daisuke Takahashi(Extend Wings)](https://www.extendwings.com/)
 * Portions (c) 2010-2012 Web Online.
 * Unless otherwise stated, all files in this repo is licensed under *GNU AFFERO GENERAL PUBLIC LICENSE, Version 3*. See *LICENSE* file.
 
@@ -43,7 +43,7 @@ Don't forget to install Jetpack!
 ## Frequently Asked Questions
 
 ### This plugin is broken! Thanks for nothing!
-First of all, we supports PHP 5.4+, MySQL 5.5+, WordPress 3.8+. Old software(vulnerable!) is not supported.
+First of all, we supports PHP 5.6+, MySQL 5.5+, WordPress 4.4+. Old software(vulnerable!) is not supported.
 If you're in supported environment, please create [pull request](https://github.com/shield-9/jetpack-sharing-source-pack/compare/) or [issue](https://github.com/shield-9/jetpack-sharing-source-pack/issues/new).
 
 ## Screenshots
@@ -51,6 +51,9 @@ If you're in supported environment, please create [pull request](https://github.
 This plugin has no screen.
 
 ## Changelog
+
+### 0.1.4
+* [`git diff 0.1.3...0.1.4`](https://github.com/shield-9/jetpack-sharing-source-pack/compare/0.1.3...0.1.4)
 
 ### 0.1.3
 * Bug Fix: Compatible with [Jetpack](https://wordpress.org/plugins/jetpack/) 3.1.x
