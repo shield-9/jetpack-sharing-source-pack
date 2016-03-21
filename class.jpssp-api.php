@@ -85,10 +85,10 @@ class Google_API extends JPSSP_API {
 	const API_ENDPOINT = 'google';
 	const API_PATH     = self::API_NS . '/' . self::API_ENDPOINT;
 
-	public function get_item() {
+	public function get_item( $request ) {
 
-		if( !empty( $_GET['url'] ) ) {
-			$url = $_GET['url'];
+		if( url_to_postid( $request['url'] ) ) {
+			$url = $request['url'];
 		} else {
 			$url = home_url();
 		}
