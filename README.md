@@ -3,8 +3,8 @@
 * **Donate link**: https://www.extendwings.com/donate/
 * **Tags**: Jetpack, social, sharing, share, SNS, 
 * **Requires at least**: 4.4
-* **Stable tag**: 0.1.3
 * **Tested up to**: 4.5
+* **Stable tag**: 0.1.4
 * **License**: AGPLv3 or later
 * **License URI**: http://www.gnu.org/licenses/agpl.txt
 
